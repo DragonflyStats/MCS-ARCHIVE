@@ -1,0 +1,318 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+
+
+% Standard packages
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsbsy}         % for \boldsymbol command (bold in math mode)
+\usepackage{amsfonts, amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\sq}{\begin{eqnarray}}
+\newcommand{\fq}{\end{eqnarray}}
+\newcommand{\bp}{$\bullet$\:}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS IS WHERE THE DOCUMENT BEGINS
+
+
+%\setbeamercovered{transparent}   % overlays with light grey 1st slide
+\title
+{
+{\huge Title\\[0.3cm] }
+}
+\author[Kevin O'Brien]{{\bf Author}}
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+\begin{document}
+
+
+
+%----------------------------------------------------------- %
+\section{Regression Methods - "mcr" and Deming regression}
+
+\begin{frame}
+\frametitle{Regression Techniques for MCS}
+
+\Large
+\begin{itemize}
+\item Deming ( and Orthonormal ) Regression
+\item The \textbf{mcr} package
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Deming Regression}
+\begin{itemize}
+\item Conventional regression models are estimated using the ordinary
+least squares (OLS) technique, and are referred to as `Model I
+regression' in some papers. 
+\item A key feature of Model I
+models is that the independent variable(X) is assumed to be measured
+without error. 
+\item As often pointed out in several papers, including Bland and Altman [1], this assumption invalidates simple linear
+regression for use in method comparison studies, as both methods
+must be assumed to be measured with error.
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+\item The use of regression models that assumes the presence of error in
+both variables $X$ and $Y$ have been proposed for use instead.
+
+\item These methodologies are collectively
+known as `Error in Variables Regression' or `Model II regression'. They differ from OLS regression in the method used to estimate the parameters of the regression.
+ \end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+
+\item Regression estimates depend on formulation of the model. A
+formulation with one method considered as the $X$ variable will
+yield different estimates for a formulation where it is the $Y$
+variable. 
+
+\item With Model I regression,the models fitted in both cases
+will entirely different and inconsistent.  However with Model II
+regression, they will be consistent and complementary.
+
+\item The most commonly encounted approach is called "Deming Regression".
+
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------- %
+\subsection{Error in Variables Deming Regression}
+\begin{frame}
+
+
+\frametitle{Deming Regression}
+\begin{itemize}
+\item Both Variables are assumed to have attendant measurement error.
+\item The ratio of the variances of measurement errors for the respective methods is known as the \textbf{Variance Ratio}, denoted $\lambda$.
+\item Orthonormal Regression is used to describe the case where Variance Ratio is equal to 1. (i.e. variances are assumed to be equal).
+\item Deming Regression describes the case where the Variance Ration is specified at an value other than 1.
+\item Dunn [9] cautions against using the approach as there is no straightforward method for determining an estimate for $\lambda$.
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+\item As with conventional regression methodologies, Deming's regression
+calculates an estimate for both the slope and intercept for the
+fitted line, and standard errors thereof. 
+\item Therefore there is
+sufficient information to carry out hypothesis tests on both
+estimates, that are informative about presence of \textbf{fixed} and
+\textbf{proportional} bias.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+\item A $95\%$ confidence interval for the intercept estimate can be
+used to test the intercept, and hence fixed bias, is equal to
+zero. 
+\item This hypothesis is accepted if the confidence interval for
+the estimate contains the value $0$ in its range. Should this be,
+it can be concluded that fixed bias is not present. 
+\item Conversely, if
+the hypothesis is rejected, then it is concluded that the
+intercept is non zero, and that fixed bias is present.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+\item Testing for proportional bias is a very similar procedure. The
+$95\%$ confidence interval for the slope estimate can be used to
+test the hypothesis that the slope is equal to $1$. 
+\item This
+hypothesis is accepted if the confidence interval for the estimate
+contains the value $1$ in its range. 
+\item If the hypothesis is
+rejected, then it is concluded that the slope is significant
+different from $1$ and that a proportional bias exists.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+\frametitle{Deming Regression}
+\large
+\begin{itemize}
+\item Deming's Regression suffers from some crucial drawback. Firstly it
+is computationally complex, and it requires specific software
+packages to perform calculations.\item Secondly it is uninformative
+about the comparative precision of two methods of measurement.
+Most importantly \item Carol andl Rupert [11] states that Deming's
+regression is acceptable only when the precision ratio ($\lambda$,
+in their paper as $\eta$) is correctly specified ,but in practice
+this is often not the case, with the $\lambda$ being
+underestimated.
+\end{itemize}
+\end{frame}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+For convenience, a new data set shall be introduced to demonstrate
+Demings regression. Measurements of transmitral volumetric flow
+(MF) by doppler echocardiography, and left ventricular stroke
+volume (SV) by cross sectional echocardiography in 21 patients
+withour aortic valve disease are tabulated in \alert{zhang}. This
+data set features in the discussion of method comparison studies
+in \alert[p.398]{AltmanBook} .
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+
+% latex table generated in R 2.6.0 by xtable 1.5-5 package
+% Tue Sep 01 13:31:17 2009
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c|c|c||c|c|c||c|c|c|}
+  \hline
+ Patient & MF  & SV  & Patient & MF  & SV  & Patient & MF  & SV \\
+ &($cm^{3}$)&  ($cm^{3}$) & &($cm^{3}$)&  ($cm^{3}$) & &($cm^{3}$)&  ($cm^{3}$)
+ \\
+  \hline
+1 & 47 & 43 &  8 & 75 & 72 &  15 & 90 & 82 \\
+  2 & 66 & 70 & 9 & 79 & 92 &  16 & 100 & 100 \\
+  3 & 68 & 72 & 10 & 81 & 76 & 17 & 104 & 94 \\
+  4 & 69 & 81 & 11 & 85 & 85 &  18 & 105 & 98 \\
+  5 & 70 & 60 & 12 & 87 & 82 & 19 & 112 & 108 \\
+  6 & 70 & 67 & 13 & 87 & 90 & 20 & 120 & 131 \\
+  7 & 73 & 72 & 14 & 87 & 96 &  21 & 132 & 131 \\
+
+   \hline
+\end{tabular}
+\caption{Transmitral volumetric flow(MF) and left ventricular
+stroke volume (SV) in 21 patients. (Zhang et al 1986)}
+\end{center}
+\end{table}
+\newpage
+%\begin{figure}[h!]
+%  % Requires \usepackage{graphicx}
+%  \includegraphics[width=130mm]{ZhangDeming.jpeg}
+%  \caption{Deming Regression For Zhang's Data}\label{ZhangDeming}
+%\end{figure}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+\begin{frame}
+
+\frametitle{Deming's Regression}
+\begin{itemize}
+% \item The most commonly known Model II methodology is known as Deming's Regression, (also known an Ordinary Least Product regression). Deming regression is recommended by \alert{CornCoch} as the preferred Model II regression for use in method comparison studies. 
+\item As previously noted, the Bland Altman Plot is
+uninformative about the comparative influence of proportional bias
+and fixed bias. Deming's regression provides independent tests for
+both types of bias.
+
+\item For a given $\lambda$, \alert{Kummel} derived the following
+estimate for the Demimg regression slope parameter. ($\alpha$ is
+simply estimated by using the identity
+$\bar{Y}-\hat{\beta}\bar{X}$.)
+\begin{equation}
+\hat{\beta} =\quad \frac{S_{YY} - \lambda S_{XX}+[(S_{YY} -
+\lambda S_{XX})^{2}+ 4\lambda S^{2}_{XY}]^{1/2}}{2S_{XY}}
+\end{equation}
+\end{itemize}
+\end{frame}

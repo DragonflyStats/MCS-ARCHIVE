@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.07pt}
+\select@language {english}
+\beamer@sectionintoc {2}{A Look at Some Tests for Paired-Samples}{6}{0}{1}
+\beamer@sectionintoc {3}{An Alternative Paired-Sampes $t$-Test}{23}{0}{2}
+\beamer@sectionintoc {4}{Power Functions}{34}{0}{3}
+\beamer@sectionintoc {5}{Concluding Remarks}{38}{0}{4}

@@ -1,0 +1,712 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+
+
+% Standard packages
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsbsy}         % for \boldsymbol command (bold in math mode)
+\usepackage{amsfonts, amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\sq}{\begin{eqnarray}}
+\newcommand{\fq}{\end{eqnarray}}
+\newcommand{\bp}{$\bullet$\:}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS IS WHERE THE DOCUMENT BEGINS
+
+
+%\setbeamercovered{transparent}   % overlays with light grey 1st slide
+\title
+{
+{\huge Title\\[0.3cm] }
+}
+\author[Kevin O'Brien]{{\bf Author}}
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+\begin{document}
+%------------------------------------------------------------%
+
+
+%With the greater computing power available for scientific
+%analysis, it is inevitable that complex models such as linear
+%mixed effects models should be applied to method comparison
+%studies.
+
+
+
+
+
+
+
+% \begin{equation}
+% data here
+% \end{equation}
+
+%------------------------------------------------------------------------%
+\section{Roy (2009) Formal Tests}
+\begin{frame}{\bf \tcb{LME models}}
+\begin{itemize}\itemsep0.7cm
+\item In a linear mixed-effects model, responses from a subject are due to both fixed and random
+effects. A random effect is an effect associated with a sampling procedure.
+\item Replicate measurements would require use of random effect terms in model.
+\item Can have differing number of replicate measurements for different subjects.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{The \texttt{nlme} Package}}
+
+\begin{itemize}
+\item LME models can be implemented in \texttt{R} using the \texttt{nlme} package, one of the core packages.\\
+\item Authors: Jose Pinheiro, Douglas Bates (up to 2007), Saikat
+DebRoy (up to 2002), Deepayan Sarkar (up to 2005), the \texttt{R} Core team \\(source: \texttt{nlme} package manual)\\
+\item ``Mixed-Effects Models in S and S-PLUS" by JC Pinheiro and DM Bates (Springer,2000)
+
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------------------%
+%\subsection[Carstensen's Mixed Models]{Carstensen's Mixed Models}
+%
+%\Large
+%
+%%----------------------------------------------------------- %
+% %SLIDE 1
+%
+%\begin{frame}{\bf \tcb{Carstensen's Mixed Models}}
+%\begin{itemize}
+%\item Carstensen \textit{et al} \cite{BXC2004} proposes linear mixed effects models for deriving
+%conversion calculations similar to Deming's regression, and for
+%estimating variance components for measurements by different
+%methods. 
+%%\item The following model (in the authors own notation) is
+%%formulated as follows, where $y_{mir}$ is the $r$th replicate
+%%measurement on subject $i$ with method $m$.
+%\end{itemize}
+%\end{frame}
+%---------------------------------------------------------- %
+ %SLIDE 2
+
+
+
+%---------------------------------------------%
+\begin{frame}
+\frametitle{Method Comparison Studies with \texttt{R}}
+\large
+\begin{itemize}
+\item 
+The absence of inter-method bias by itself is not sufficient to
+establish whether two measurement methods agree. 
+\item The two
+methods must also have equivalent levels of precision. 
+\item Should one
+method yield results considerably more variable than that of the
+other, they can not be considered to be in agreement. 
+\item With this in
+mind a methodology is required that allows an analyst to estimate
+the inter-method bias, and to compare the precision of both
+methods of measurement.
+\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\begin{itemize}
+%\item The above formulation doesn't require the data set to be balanced.
+%However, it does require a sufficient large number of replicates
+%and measurements to overcome the problem of identifiability. The
+%import of which is that more than two methods of measurement may
+%be required to carry out the analysis. 
+%\item There is also the
+%assumptions that observations of measurements by particular
+%methods are exchangeable within subjects. (Exchangeability means
+%that future samples from a population behaves like earlier
+%samples).
+%\end{itemize}
+
+
+%\alert{BXC2004} describes the above model as a `functional model',
+%similar to models described by \alert{Kimura}, but without any
+%assumptions on variance ratios. A functional model is . An
+%alternative to functional models is structural modelling
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%Carstensen \textit{et al} [4] uses the above formula to predict observations for
+%a specific individual $i$ by method $m$;
+%
+%\begin{equation}BLUP_{mir} = \hat{\alpha_{m}} + \hat{\beta_{m}}\mu_{i} +
+%c_{mi} \end{equation}. Under the assumption that the $\mu$s are
+%the true item values, this would be sufficient to estimate
+%parameters. When that assumption doesn't hold, regression
+%techniques (known as updating techniques) can be used additionally
+%to determine the estimates. The assumption of exchangeability can
+%be unrealistic in certain situations. Carstensen \textit{et al}[4] provides an
+%amended formulation which includes an extra interaction term ($
+%d_{mr} \sim N(0,\omega^{2}_{m}$)to account for this.
+%
+%\end{frame}
+
+
+%------------------------------------------------------------%
+\subsection{Roy's Hypothesis Tests for MCS}
+%-------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Roy's method}
+\large
+\begin{itemize}
+\item Roy 2009 [6] formulates a very powerful method of assessing whether two methods of measurement, with replicate measurements, also using LME models.
+\item  Roy's approach is based on the construction of variance-covariance matrices.
+\item Importantly, Roy's approach does not address the issue of limits of agreement (though another related analysis , the coefficient of repeatability, is mentioned).
+\end{itemize}
+
+
+\end{frame}
+%------------------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Roy's method}
+\begin{itemize}
+\item Roy proposes a novel method using the LME model with Kronecker product covariance structure in a doubly multivariate set-up to assess the agreement between a new method and an established method with unbalanced data and with unequal replications for different subjects [6].
+\item 
+Using Roy's method, four candidate models are constructed, each differing by constraints applied to the variance covariance matrices.
+\item In addition to computing the inter-method bias, three significance tests are carried out on the respective formulations to make a judgement on whether or not two methods are in agreement.
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------%
+\begin{frame}
+\begin{itemize}
+
+\item Recall: Roys uses an LME model approach to provide a set of formal tests for method comparison studies.\\
+
+\item Four candidates models are fitted to the data. One is a reference model, and three are nested models.
+
+\item 
+These models are similar to one another, but for the imposition of equality constraints in the nested models
+
+\item 
+The proposed tests are the pairwise comparison of candidate models, one formulated without constraints, the other with a constraint. Constructively tests for equality of variances.\\
+
+
+%Roy's model uses fixed effects $\beta_0 + \beta_1$ and $\beta_0 + \beta_1$ to specify the mean of all observationsby \\ methods 1 and 2 respectively.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{Roy's Approach}}
+\begin{itemize}\itemsep0.4cm
+\item Roy proposes an LME model with Kronecker product covariance structure in a doubly multivariate setup.
+\item Response for $i$th subject can be written as
+\[ y_i = \beta_0 + \beta_1x_{i1} + \beta_2x_{i2} + b_{1i}z_{i1}  + b_{2i}z_{i2} + \epsilon_i \]
+\item $\beta_1$ and $\beta_2$ are fixed effects corresponding to both methods. ($\beta_0$ is the intercept.)
+\item $b_{1i}$ and $b_{2i}$ are random effects corresponding to both methods.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{Roy's LME model}}
+\begin{itemize}\itemsep0.7cm
+
+\item Let $\boldsymbol{y}_i$ be the set of responses for subject $i$ ( in matrix form).
+\item $\boldsymbol{y}_i = \boldsymbol{X}_i\boldsymbol{\beta} + \boldsymbol{Z}_i \boldsymbol{b}_i + \boldsymbol{\epsilon}_i$
+\item $\boldsymbol{b}_i \sim N_m(0,\boldsymbol{D})$  (m: number of methods)
+\item $\boldsymbol{\epsilon}_i \sim N_{n_i}(0,\boldsymbol{R})$ ($n_i$: number of measurements on subject $i$)
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+%-----------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Roy (2009) -  Model terms}
+It is important to note the following characteristics of this model.
+\begin{itemize}\itemsep0.0cm
+\item Let the number of replicate measurements on each item $i$ for both methods be $n_i$, hence $2 \times n_i$ responses. However, it is assumed that there may be a different number of replicates made for different items. Let the maximum number of replicates be $p$. An item will have up to $2p$ measurements, i.e. $\max(n_{i}) = 2p$.
+
+% \item $\boldsymbol{y}_i$ is the $2n_i \times 1$ response vector for measurements on the $i-$th item.
+% \item $\boldsymbol{X}_i$ is the $2n_i \times  3$ model matrix for the fixed effects for observations on item $i$.
+% \item $\boldsymbol{\beta}$ is the $3 \times  1$ vector of fixed-effect coefficients, one for the true value for item $i$, and one effect each for both methods.
+
+\item Later on $\boldsymbol{X}_i$ will be reduced to a $2 \times 1$ matrix, to allow estimation of terms. This is due to a shortage of rank. The fixed effects vector can be modified accordingly.
+\item $\boldsymbol{Z}_i$ is the $2n_i \times  2$ model matrix for the random effects for measurement methods on item $i$.
+\item $\boldsymbol{b}_i$ is the $2 \times  1$ vector of random-effect coefficients on item $i$, one for each method.
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Roy(2009) -  Model terms}
+\begin{itemize}\itemsep0.4cm
+\item $\boldsymbol{\epsilon}$  is the $2n_i \times  1$ vector of residuals for measurements on item $i$.
+\item $\boldsymbol{G}$ is the $2 \times  2$ covariance matrix for the random effects.
+\item $\boldsymbol{R}_i$ is the $2n_i \times  2n_i$ covariance matrix for the residuals on item $i$.
+\item The expected value is given as $\mbox{E}(\boldsymbol{y}_i) = \boldsymbol{X}_i\boldsymbol{\beta}.$ 
+\item The variance of the response vector is given by $\mbox{Var}(\boldsymbol{y}_i)  = \boldsymbol{Z}_i \boldsymbol{G} \boldsymbol{Z}_i^{\prime} + \boldsymbol{R}_i$ . 
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------------------------------%
+
+\subsection*{Variance Covariance Matrices}
+\begin{frame}{\bf \tcb{Variance-covariance matrix}}
+\begin{itemize}
+\item Overall variance covariance matrix for response vector $\boldsymbol{y}_i$
+
+\[ \mbox{Cov}(\boldsymbol{y}_i)= \boldsymbol{Z}_i \boldsymbol{D}\boldsymbol{Z}^{\prime}_i + \boldsymbol{R}_i \]
+
+\item can be re-expressed as follows:
+\[\boldsymbol{Z}_i \left[ \begin{array}{cc} d^2_1 & d_{12}\\
+d_{12} & d^2_2\\ \end{array}\right]\boldsymbol{Z}^{\prime}_i  +  \left(V \otimes \left[\begin{array}{cc} \sigma^2_1 & \sigma_{12}\\
+\sigma_{12} & \sigma^2_2\\ \end{array}\right] \right)
+\]
+
+\item Overall variability between the two methods is sum of between-subject and within-subject variability,
+\[
+ \mbox{Block } \boldsymbol{\Omega}_i = \left[ \begin{array}{cc} d^2_1 & d_{12}\\ d_{12} & d^2_2\\ \end{array} \right]
++ \left[\begin{array}{cc} \sigma^2_1 & \sigma_{12}\\ \sigma_{12} & \sigma^2_2\\ \end{array}\right].
+\]
+
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Variance Covariance Matrices }
+\large
+\begin{itemize}\itemsep0.4cm
+\item Under Roy's model, random effects are defined using a bivariate normal distribution. 
+\item Consequently, the variance-covariance structures can be described using $2 \times 2$  matrices. \item A discussion of the various structures a variance-covariance matrix can be specified under is required before progressing. 
+\item The following structures are relevant:
+\begin{enumerate}
+\item the identity structure, 
+\item the compound symmetric structure
+\item the symmetric structure.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+%-------------------------------------------%
+\begin{frame}
+\frametitle{Variance Covariance Matrices }
+\begin{itemize}
+\item The \textbf{identity} structure is simply an abstraction of the identity matrix. 
+\item The \textbf{compound symmetric} structure and \textbf{symmetric} structure can be described with reference to the following matrix (here in the context of the overall covariance Block-$\boldsymbol{\Omega}_i$, but equally applicable to the component variabilities $\boldsymbol{G}$ and $\boldsymbol{\Sigma}$);
+
+\[\left( \begin{array}{cc}
+              \omega^2_1  & \omega_{12} \\
+              \omega_{12} & \omega^2_2 \\
+\end{array}\right) \]
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------------%
+
+\begin{frame}{\bf \tcb{Variance-covariance matrix}}
+\[\left( \begin{array}{cc}
+              \omega^2_1  & \omega_{12} \\
+              \omega_{12} & \omega^2_2 \\
+\end{array}\right) \]
+\begin{itemize}
+\item Symmetric structure requires the equality of all the diagonal terms, hence $\omega^2_1 = \omega^2_2$. 
+\item Conversely compound symmetry make no such constraint on the diagonal elements. 
+\item Under the identity structure, $\omega_{12} = 0$.
+\item A comparison of a model fitted using symmetric structure with that of a model fitted using the compound symmetric structure is equivalent to a test of the equality of variance.
+
+\end{itemize}
+
+
+%In the presented example, it is shown that Roy's LOAs are lower than those of Carstensen et al, when covariance between methods is present.
+
+\end{frame}
+
+
+%\begin{frame}{\bf \tcb{Variance-Covariance Structures}}
+%\textbf{Symmetric and Compound Symmetric}
+%\[\left(
+%\begin{array}{cc}
+%\sigma^2_1 & \sigma_{12}\\
+%\sigma_{12} & \sigma^2_2\\
+%\end{array} \right)
+%\]
+%
+%\begin{itemize}
+%\item Symmetric structure specifies that $\sigma^2_1$ may differ from $\sigma^2_2$.
+%\item Compound symmetric structure specifies that $\sigma^2_1 = \sigma^2_2$.
+%\item In both cases, $\sigma_{12}$ may take value other than 0.
+%\end{itemize}
+%
+%\end{frame}
+
+
+
+%--------------------------------------------------------------------------------------------------------------%
+
+
+
+\subsection{Implementation}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Reference Model}}
+\texttt{REF = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | item/repl),\\
+   \hspace{0.6cm} method="ML")}\\
+\begin{itemize}
+\item LME model that specifies a symmetric matrix structure for both between-subject and within-subject variances.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 1}}
+\texttt{NMB = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | item/repl),\\
+   \hspace{0.6cm} method="ML")}
+
+\begin{itemize}
+\item LME model that specifies a compound symmetric matrix structure for between-subject and symmetric structure within-subject variances.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 2}}
+\texttt{NMW = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
+   \hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | item/repl),\\
+   \hspace{0.6cm} method="ML")}
+   \begin{itemize}
+\item LME model that specifies a symmetric matrix structure for between-subject and compound symmetric structure within-subject variances.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 3}}
+\texttt{NMO = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
+   \hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | /repl),\\
+   \hspace{0.6cm} method="ML")}
+   \begin{itemize}
+\item LME model that specifies a compound symmetric matrix structure for both between-subject and within-subject variances.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+% Useful R Commands - Good
+%-----------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Likelihood Ratio Tests}
+\begin{itemize}
+\item The relationship between the respective models presented by \alert{roy} is known as ``nesting".
+A model A to be nested in the reference model, model B, if Model A is a special case of Model B, or with some specific constraint applied.
+\item 
+A general method for comparing models with a nesting relationship is the \textbf{likelihood ratio test (LRTs)}. 
+\item LRTs are a family of tests used to compare the value of likelihood functions for two models, whose respective formulations define a hypothesis to be tested (i.e. the nested and reference model). 
+\item The significance of the likelihood ratio test can be found by comparing the likelihood ratio to the $\chi^2$ distribution, with the appropriate degrees of freedom.
+\end{itemize}
+\end{frame}
+%%-------------------------------------------------%
+%\begin{frame}
+%\begin{itemize}
+%\item When testing hypotheses around covariance parameters in an LME model, REML estimation for both models is recommended by West et al. REML estimation can be shown to reduce the bias inherent in ML estimates of covariance parameters \alert{west}.
+%\item Conversely, \alert{pb} advises that testing hypotheses on fixed-effect parameters should be based on ML estimation, and that using REML would not be appropriate in this context.
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{\bf \tcb{Some useful \texttt{R} commands}}
+\large
+\vspace{-0.7cm}
+\begin{itemize}
+
+\item \texttt{intervals} :\vspace{0.25cm} \\This command obtains the estimate and confidence intervals on the parameters associated with the model.\\
+    This is particularly useful in writing some code to extract estimates for inter-method bias and variances, and hence estimates for the limits of agreement.
+
+\item \texttt{anova} : \vspace{0.25cm} \\When a reference model and nested model are specified as arguments, this command performs a likelihood ratio test.
+\end{itemize}
+\end{frame}
+
+\subsection{Example}
+\begin{frame}{\bf \tcb{Example: Blood Data}}
+\begin{itemize}\itemsep0.5cm
+\item Used in Bland and Altman's 1999 paper [3]. Data was supplied by Dr E O'Brien.
+\item Simultaneous measurements of systolic blood pressure each made by two experienced observers, J and R, using a  sphygmometer.
+\item Measurements also made by a semi-automatic blood pressure monitor, denoted S.
+\item On 85 patients, 3 measurement made in quick succession by each of the three observers (765 measurements in total)
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+
+\begin{frame}[fragile]{\bf \tcb{Example: Blood Data}}
+Inter-method Bias between J and S:         15.62 mmHg
+\begin{verbatim}
+>summary(REF)
+.....
+Fixed effects: y ~ meth
+             Value Std.Error  DF t-value p-value
+(Intercept) 127.41    3.3257 424  38.310       0
+methS        15.62    2.0456 424   7.636       0
+.....
+\end{verbatim}
+\end{frame}
+%------------------------------------------------------------------------%
+
+\begin{frame}[fragile]{\bf \tcb{Between-subject variance covariance matrix }}
+
+\begin{verbatim}
+..
+Random effects:
+ Formula: ~method - 1 | subject
+ Structure: General positive-definite
+         StdDev    Corr
+methodJ  30.396975 methdJ
+methodS  31.165565 0.829
+Residual  6.116251
+..
+\end{verbatim}
+\[
+\hat{\boldsymbol{D}} = \left(
+\begin{array}{cc}
+923.97	& 785.34 \\
+785.34	& 971.29\\
+\end{array}\right)
+\]
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Within-subject variance covariance matrix}}
+\begin{verbatim}
+Correlation Structure: General
+ Formula: ~1 | subject/obs
+ Parameter estimate(s):
+ Correlation:
+  1
+2 0.288
+Variance function:
+ Structure: Different standard deviations per stratum
+ Formula: ~1 | method
+ Parameter estimates:
+       J        S
+1.000000 1.490806
+\end{verbatim}
+\[
+ \hat{\boldsymbol{\Sigma}} = \left(
+\begin{array}{cc}
+37.40 & 16.06 \\
+16.06 & 83.14 \\
+\end{array}\right)
+\]
+\end{frame}
+%-------------------------------------------------------------------------------------%
+\subsection{Roy's LOAs}
+\begin{frame}
+\begin{itemize}
+\item The limits of agreement computed by Roy's method are derived from the variance covariance matrix for overall variability.
+\item This matrix is the sum of the between subject VC matrix and the within-subject VC matrix.
+\item
+The standard deviation of the differences of methods $x$ and $y$ is computed using values from the overall VC matrix.
+\[
+\mbox{var}(x - y ) = \mbox{var} ( x )  + \mbox{var} ( y ) - 2\mbox{cov} ( x ,y )
+\]
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Overall variance covariance matrix}}
+
+\begin{itemize}\itemsep0.7cm
+\item Overall variance \[
+\mbox{Block }\hat{\boldsymbol{\Omega}} = \hat{\boldsymbol{D}} + \hat{\boldsymbol{\Sigma}} =
+ \left(
+\begin{array}{cc}
+961.38 & 801.40 \\
+801.40 & 1054.43 \\
+\end{array}
+\right)
+\]
+
+\item Standard deviation of the differences can be computed accordingly : 20.32 mmHg.
+
+\item Furthermore, limits of agreement can be computed: $[15.62 \pm (2 \times 20.32) ]$ (mmHg).
+\end{itemize}
+\end{frame}
+
+
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Formal Tests: Between-subject Variances}}
+\begin{itemize}
+\item Test the hypothesis that both methods have equal between-subject variances.
+\item Constructed an alternative model ``Nested Model B" using \textbf{\emph{compound symmetric}} form for between-subject variance (hence specifying equality of between-subject variances).
+\item Use a likelihood ratio test to compare models.
+\end{itemize}
+\begin{verbatim}
+...
+> anova(REF,NMB)
+   Model df ...     logLik   Test   L.Ratio p-value
+REF    1  8 ...  -2030.736
+NMB    2  7 ...  -2030.812 1 vs 2 0.1529142  0.6958
+...
+\end{verbatim}
+\begin{itemize}
+\item Fail to reject hypothesis of equality.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Formal Tests: Within-subject Variances}}
+\begin{itemize}
+\item Test the hypothesis that both methods have equal within-subject variances.
+\item Constructed an alternative model ``Nested Model W" using compound symmetric form for within-subject variance (hence specifying equality of within-subject variances).
+\item Again, use a likelihood ratio test to compare models.
+\end{itemize}
+\begin{verbatim}
+...
+> anova(REF,NMW)
+    Model df ...    logLik   Test  L.Ratio p-value
+REF     1  8 ... -2030.736
+NMW     2  7 ... -2045.044 1 vs 2 28.61679  <.0001
+\end{verbatim}
+\begin{itemize}
+\item Reject hypothesis of equality.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Formal Tests : Outcomes}}
+\large
+\vspace{-1cm}
+\begin{itemize}
+\item Inter-method bias: Significant difference in mean values detected.\\
+\vspace{0.25cm}\item Between-subject variance: No significant difference in between-subject variances between the two methods detected.\\
+\vspace{0.25cm}\item Within-subject variance: A significant difference in within-subject variances is detected.\\
+\vspace{0.25cm}\item Can not recommend switching between the two methods.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Remarks}}
+\begin{itemize}
+\item Can perform a test for equality of overall variances.\\
+\vspace{0.25cm}\item This can be done by specifying a compound symmetry structure for both between-subject and within-subject variances when constructing a nested model.\\
+\vspace{0.25cm}\item Roy controls the family-wise error rate in paper, using Bonferroni correction procedure.
+\end{itemize}
+\end{frame}
+
+
+
+
+%-------------------------------------------------------------------------------------%
+
+
+
+
+
+
+
+%---Carstensen's limits of agreement
+%---The between item variances are not individually computed. An estimate for their sum is used.
+%---The within item variances are indivdually specified.
+%---Carstensen remarks upon this in his book (page 61), saying that it is "not often used".
+%---The Carstensen model does not include covariance terms for either VC matrices.
+%---Some of Carstensens estimates are presented, but not extractable, from R code, so calculations have to be done by %---hand.
+%--Importantly, estimates required to calculate the limits of agreement are not extractable, and therefore the calculation must be done by hand.
+%---All of Roys stimates are  extractable from R code, so automatic compuation can be implemented
+%---When there is negligible covariance between the two methods, Roys LoA and Carstensen's LoA are roughly the same.
+%---When there is covariance between the two methods, Roy's LoA and Carstensen's LoA differ, Roys usually narrower.
+
+
+%%---Estimability of Tau
+%When only two methods are compared, \citet{BXC2008} notes that separate estimates of $\tau^2_m$ can not be obtained %due to the model over-specification. To overcome this, the assumption of equality, i.e. $\tau^2_1 = \tau^2_2$, is %required.
+
+%With regards to the specification of the variance terms, Carstensen  remarks that using their approach is common, %remarking that \emph{ The only slightly non-standard (meaning ``not often used") feature is the differing residual %variances between methods }\citep{bxc2010}.
+
+
+
+%\chapter{Limits of Agreement}
+
+%\section{Modelling Agreement with LME Models}
+
+% Carstensen pages 22-23
+
+
+
+
+
+
+\end{document}

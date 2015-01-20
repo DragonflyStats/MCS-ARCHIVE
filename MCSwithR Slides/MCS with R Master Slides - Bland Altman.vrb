@@ -1,0 +1,16 @@
+\frametitle{Bland-Altman Plot}
+\begin{verbatim}
+>X = rnorm(14,6,1);Y = rnorm(14,5.3,1.1)
+>
+>A=(X+Y)/2 #case-wise averages
+>D=X-Y #case-wise differences
+>
+>Dbar=mean(D) #inter-method bias
+>SdD=sd(D) #standard deviation of the differences
+>
+>plot(A,D,pch=16,col="red", ylim=c(-3,3))
+>
+>abline(h=Dbar,lty=2)
+>abline(h=(Dbar-2*SdD),lty=2)
+>abline(h=(Dbar+2*SdD),lty=2)
+\end{verbatim}

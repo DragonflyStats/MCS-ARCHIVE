@@ -1,0 +1,13 @@
+\frametitle {\bf \tcb {Inter-Method Bias}}\par A formal test for inter-method bias can be done by re-specifying the reference model, this time allowing an intercept term.
+
+\texttt{fit1 = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} \ldots}
+
+\begin{verbatim}
+Fixed effects: y ~ meth
+             Value Std.Error  DF t-value p-value
+(Intercept) 127.41    3.3257 424  38.310       0
+methS        15.62    2.0456 424   7.636       0
+
+\end{verbatim}

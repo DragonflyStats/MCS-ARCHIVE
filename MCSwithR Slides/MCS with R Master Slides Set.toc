@@ -1,0 +1,26 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction to Method Comparison Studies}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Method Comparison Studies}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Grubbs Example}{14}{0}{1}
+\beamer@sectionintoc {2}{Bland-Altman Methods}{18}{0}{2}
+\beamer@subsectionintoc {2}{1}{Bland-Altman Difference Plot}{20}{0}{2}
+\beamer@subsectionintoc {2}{2}{Limits of Agreement}{30}{0}{2}
+\beamer@subsectionintoc {2}{4}{Interpreting Bland-Altman Plots}{35}{0}{2}
+\beamer@subsectionintoc {2}{5}{Replicate Measurements}{46}{0}{2}
+\beamer@sectionintoc {3}{Regression Methods - "mcr" and Deming regression}{49}{0}{3}
+\beamer@subsectionintoc {3}{1}{Error in Variables Deming Regression}{52}{0}{3}
+\beamer@subsectionintoc {3}{2}{Deming's Regression}{54}{0}{3}
+\beamer@sectionintoc {4}{Unscaled Indices - Using TDI and CP}{61}{0}{4}
+\beamer@sectionintoc {5}{LME models in Method comparison}{62}{0}{5}
+\beamer@subsectionintoc {5}{1}{Using LME models to create Prediction Intervals}{64}{0}{5}
+\beamer@subsectionintoc {5}{2}{Carstensen's Mixed Models}{66}{0}{5}
+\beamer@sectionintoc {6}{Computing LoAs from LME models}{75}{0}{6}
+\beamer@subsectionintoc {6}{1}{Carstensen's Mixed Models}{79}{0}{6}
+\beamer@subsectionintoc {6}{2}{Roy's Hypothesis Tests for MCS}{83}{0}{6}
+\beamer@subsectionintoc {7}{1}{Implementation}{93}{0}{6}
+\beamer@subsectionintoc {8}{1}{Example}{100}{0}{6}
+\beamer@subsectionintoc {8}{2}{Carstensen's LOAs}{111}{0}{6}
+\beamer@subsectionintoc {8}{3}{Roy's LOAs}{112}{0}{6}
+\beamer@subsectionintoc {8}{4}{References}{130}{0}{6}
+\beamer@subsectionintoc {9}{1}{References}{131}{0}{6}

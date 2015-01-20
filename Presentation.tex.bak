@@ -1,0 +1,228 @@
+\documentclass[a4]{beamer}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{newlfont}
+\usepackage{amsmath,amsthm,amsfonts}
+%\usepackage{beamerthemesplit}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{mathptmx}  % Font Family
+\usepackage{helvet}   % Font Family
+\usepackage{color}
+
+\mode<presentation> {
+ \usetheme{Frankfurt} % was CambridgeUS
+ \useinnertheme{rounded}
+ \useoutertheme{infolines}
+ \usefonttheme{serif}
+ %\usecolortheme{wolverine}
+% \usecolortheme{rose}
+\usefonttheme{structurebold}
+}
+
+\setbeamercovered{dynamic}
+
+\title[MCS]{Diagnostic measures for the analysis of method comparison
+studies using the linear mixed effects model
+ \\ {\normalsize Transfer Report Presentation}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
+\date{November 2010}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Method Comparison Studies}
+\frame{
+
+Method comparison studies:
+\vspace{0.2cm}
+\begin{itemize}
+  \item assesses the level of agreement between two methods;
+
+\end{itemize}
+Very important type of analysis in biomedical sciences.\\
+\vspace{0.2cm}
+Agreement between two methods of clinical measurement can be quantified using the differences between observations made using the two methods on the same subjects (Bland and Altman 1999).\\
+\vspace{0.2cm}
+Inter-method bias\\
+
+
+}
+%----------------------------------------------------------------------------------------------%
+\frame{\frametitle{Bland-Altman Plot}
+
+The Bland-Altman plot is a plot of the casewise differences and averages of each pair of measurements.\\
+\vspace{0.2cm}
+It is easy to construct, and has become prevalent in medical literature.
+\vspace{0.2cm}
+Disadvantages:
+\vspace{0.2cm}
+It is constructed for a single pair of measurements.
+
+}
+
+% Presentation for Transfer
+%------------------------------------------------
+% Section 1: Introduction to MCS, BA plot, LoA
+% Section 2: Roy's Methodology
+% Section 3: Diagnostics
+\frame{\frametitle{Bland-Altman Plot}
+\begin{center}
+\includegraphics[width=\textheight]{ba2.jpg}
+\end{center}
+Source: Bland and Altman's Website
+}
+
+%----------------------------------------------------------------------------------------------%
+\frame{\frametitle{Bland - Altman Plot : Multiple measurements}
+
+The Bland-Altman plot is constructed for a single pair of measurements.\\
+\vspace{0.2cm}
+Bland and Altman (1999) extend the limits of agreement approach to data with repeated measurements, proposing new estimates for equal numbers of replicates by each method on each subject, for unequal numbers of replicates, and for replicated data collected in pairs, where the underlying value of the quantity being measured is changing.
+
+
+}
+%%----------------------------------------------------------------------------------------------%
+%\frame{\frametitle{Limits of Agreement}
+%
+%The $95\%$ limits of agreement, estimated by mean difference +/- 1.96 standard deviation of the differences, provide an interval within which $95\%$ of differences between measurements by the two methods are expected to lie.
+%}
+%
+%%----------------------------------------------------------------------------------------------%
+%\frame{\frametitle{Repeatability}
+%
+%\begin{description}
+%  \item[Repeatability] - whereby a method agrees with itself
+%  \item[Repeatability] - Within-subject variability (relevant to future tests)
+%\end{description}
+%
+%}
+%%----------------------------------------------------------------------------------------------%
+%\frame{\frametitle{Replicate Measurements}
+%
+%\begin{description}
+%\begin{itemize}
+%\item In comparison, multiple observation are often made with each method on the same subject.
+%\item These observations can be considered as replicate measurements if the observations with the same method on the same subject are conditionally independent and identically distributed.
+%\end{itemize}
+%\end{frame }
+%%----------------------------------------------------------------------------------------------%
+%\section{LME Models}
+%\begin{frame}\frametitle{Linear Mixed Effects model}
+%
+%\begin{itemize}
+%\item A linear mixed effects (LME) model is a statistical model containing both fixed effects and random effects.
+%\item LME models are a generalization of the classical linear model, which contain fixed effects only.
+%\item
+%LME models are commonly formulated in the notation described in Laird and Ware (1982)
+%\begin{equation*}
+%y = X\beta + Zb + \epsilon
+%\label{LW}
+%\end{equation*}
+%\end{itemize}
+%\end{frame}
+
+
+%----------------------------------------------------------------------------------------------%
+\begin{frame}\frametitle{Linear Mixed Effects model (contd) }
+
+\begin{itemize}
+\item Of particular interest is the variance estimates associated with the random effects parameters\[
+\mathrm{var}
+\left(
+              \begin{array}{c}
+                b \\
+                \epsilon \\
+              \end{array}
+            \right)
+   =
+\left(
+         \begin{array}{cc}
+           D & 0 \\
+           0 & \Sigma \\
+         \end{array}
+       \right)
+\]
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------%
+\begin{frame}\frametitle{Variance Structures }
+\begin{itemize}
+\item The Identity variance structures is commonly used in LME models.
+\left(
+         \begin{array}{cc}
+           \sigma^2 & 0 \\
+           0 & \sigma^2 \\
+         \end{array}
+       \right)
+\]
+\end{itemize}
+}
+
+
+
+
+%----------------------------------------------------------------------------------------------%
+\begin{frame}
+\frametitle{Multidisciplinary Research Groups and Themes}
+  \begin{columns}[t]
+    \column{.4\textwidth}
+    \begin{exampleblock}{Research Groups}<2->
+      \begin{itemize}
+          \item Clinical Trails and Health Care Evaluation
+          \item<3-> \textbf{Q}uantifying \textbf{U}ncertainty in \textbf{E}pidemiological \textbf{S}tudies and \textbf{T}rials
+          \item<4-> Applied, Bayesian and Computational Statistics
+          \item[]
+      \end{itemize}
+    \end{exampleblock}
+    \column{.5\textwidth}
+    \begin{exampleblock}{Postgraduate and Post-Doctorial Scholars}<5->
+     \begin{enumerate}
+       \item<5-> Mathematics, Statistics, Engineering, Computer Science...
+       \item[]<6-> \alert{Biology and Technology}
+       \item<5-> Public Health, Epidemiology, Economics, Medicine, Midwifery...
+       \item[]<6-> \alert{Biology and Technology}
+       \item[]
+     \end{enumerate}
+    \end{exampleblock}
+  \end{columns}
+\end{frame}
+%----------------------------------------------------------------------------------------------%
+\end{document}
+
+%----------------------------------------------------------------------------------------------%
+\begin{frame}\frametitle{Diagnostics for LME models}
+Anuradha Roy proposes a formal procedure for comparing two methods using LME Models.
+
+\vspace{0.4cm}
+
+Diagnostics methods have been developed for LME models. \\ \vspace{0.2cm}
+
+A - Questions in this section are of ``Likert'' type. The data obtained here is ordinal (Categorical) although we treat it as if it were interval (Numerical) for the analysis.\\
+\vspace{0.2cm}
+B - One question asking people to indicate what School they are from - nominal (Categorical) data.\\
+\vspace{0.2cm}
+C - Another Likert question.
+\end{frame}
+%----------------------------------------------------------------------------------------------%
+\frame{\frametitle{Bland - Altman Plot}
+
+\begin{description}
+  \item[Repeatability] - whereby a method agrees with itself
+  \item[Three variability tests] - Roy demonstrates 3 formal tests for variability
+  \item[Correlation] There should be an correlation of 0.82.
+  \item[Numeric data - Continuous numeric data] Data which can assume an infinite number of values (including decimal places)
+  between any two given values \textit{e.g.} height.
+  \item[Numeric data - Discrete numeric data] Data that can only have a finite number of numeric values (whole numbers only) \textit{e.g.}
+  family size.
+\end{description}
+
+}
+\end{document}

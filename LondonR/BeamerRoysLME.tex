@@ -1,0 +1,400 @@
+\documentclass[compress]{beamer}        % [compress] (written before {beamer} <=> navigation bar one line, all subsections in 1 line instead of 2
+
+% Setup appearance:
+\usetheme{CambridgeUS}
+%	AnnArbor | Antibes | Bergen |
+%	Berkeley | Berlin | Boadilla |
+%	boxes | CambridgeUS | Copenhagen |
+%	Darmstadt | default | Dresden |
+%	Frankfurt | Goettingen |Hannover |
+%	Ilmenau | JuanLesPins | Luebeck |
+%	Madrid | Malmoe | Marburg |
+%	Montpellier | PaloAlto | Pittsburgh |
+%	Rochester | Singapore | Szeged |
+%	Warsaw
+%
+
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+\usecolortheme{whale}
+
+%	albatross | beaver | beetle |
+%	crane | default | dolphin |
+%	dove | fly | lily | orchid |
+%	rose |seagull | seahorse |
+%	sidebartab | structure |
+%	whale | wolverine
+
+
+\setbeamertemplate{footline}
+{
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{date in head/foot}
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+%\setbeamercolor{titlelike}{parent=structure}
+%\setbeamercolor{structure}{fg=beamer@blendedblue}
+%% \useinnertheme{rounded}
+%\setbeamerfont{block title}{size={}}
+%\usefonttheme[onlylarge]{structurebold}   % title and words in the table of contents bold
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{parent=boxes, bg=white}
+
+
+% Standard packages
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsbsy}         % for \boldsymbol command (bold in math mode)
+\usepackage{amsfonts, amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\definecolor{camblue}{RGB}{26,26,89}
+\definecolor{Rblue}{RGB}{0,255,255}
+\definecolor{Rdarkblue}{RGB}{0,0,255}
+\definecolor{Rgreen}{RGB}{0,205,0}
+\newcommand{\tcb}{\textcolor{beamer@blendedblue}}
+\newcommand{\tcbb}{\textcolor{camblue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{gray}}
+\newcommand{\tcRg}{\textcolor{Rgreen}}
+\newcommand{\tcRdb}{\textcolor{Rdarkblue}}
+\newcommand{\tcRb}{\textcolor{Rblue}}
+\newcommand{\sq}{\begin{eqnarray}}
+\newcommand{\fq}{\end{eqnarray}}
+\newcommand{\bp}{$\bullet$\:}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THIS IS WHERE THE DOCUMENT BEGINS
+
+
+%\setbeamercovered{transparent}   % overlays with light grey 1st slide
+\title
+{
+{\huge Linear Mixed Effects Models\\[0.3cm] }
+}
+\author[Kevin O'Brien]{{\bf Kevin O'Brien}}
+\institute[University of Limerick, Maths \& Stats Dept]{}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\vspace{-0.4cm}
+%\begin{center}
+%\includegraphics[scale = 0.25]{ul_logo}
+%\end{center}
+\titlepage
+\end{frame}
+%------------------------------------------------------------------------------%
+% Purpose
+% What is MCS
+% What is Agreement?
+% What is a Bland Altman Plot
+% What are Limits of Agreement?
+%    Success of this approach
+% Barnhart/Roy's criteria for agreement
+% LME Models ( short introduction )
+% Breaking assumptions - using CS and Symmetric VCs
+% LRT implemented using "anova" function
+% JSR Blood data
+
+%------------------------------------------------------------------------------%
+
+
+
+%------------------------------------------------------------------------%
+\section[Intro to MCS]{Introduction to Method Comparison Studies}
+\subsection{Intro}
+\begin{frame}{\bf \tcb{Intro}}
+\begin{itemize}\itemsep0.7cm
+\item ``Do two methods of measurement agree statistically?".
+\item Sources of disagreement can arise from differing population means, differing between-subject and with-in subject variances
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\section[Agreement]{What is Agreement}
+\subsection{Intro}
+\begin{frame}{\bf \tcb{Intro}}
+\begin{itemize}\itemsep0.7cm
+\item What is Agreement
+\item An application of Linear mixed effects models to assess agreement between two methods with replicated observations     (Anuradha Roy, University of Texas)
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+
+\begin{frame}{\bf \tcb{Intro}}
+\begin{itemize}\itemsep0.7cm
+
+\item The Bland-Altman plot (Bland \& Altman, 1986 and 1999), or difference plot, is a graphical method to compare two measurements techniques. In this graphical method the differences (or alternatively the ratios) between the two techniques are plotted against the averages of the two techniques.
+
+\item Horizontal lines are drawn at the mean difference, and at the limits of agreement, which are defined as the mean difference plus and minus 1.96 times the standard deviation of the differences.
+
+\item Limits of Agreement are used extensively in medical literature for assessing agreement between two methods.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{Bland-Altman Plot}}
+What is a Bland-Altman plot?
+\begin{itemize}
+\item Graphical plot of case-wise means against case-wise differences.
+\item Very simple to implement.
+\item Can detect constant variance across range of measurement.
+\item \texttt{nlme} package (Pinheiro Bates)
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------------------------------%
+\subsection{Roy's Three Conditions}
+\begin{frame}{\bf \tcb{Roy's Three Conditions}}
+For two methods of measurement to be considered interchangeable, the following conditions must apply:
+\\
+\begin{itemize}\itemsep0.5cm
+\item No Significant inter-method bias
+\item No difference in the between-subject variabilities of the two methods
+\item No difference in the within-subject variabilities of the two methods
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{LME Models}}
+\begin{itemize}\itemsep0.7cm
+\item ``Do two methods of measurement agree statistically?".
+%\item Let $\boldsymbol{y}_i$ be the response of item $i$.
+%\item $\boldsymbol{y}_i = \boldsymbol{X}_i\boldsymbol{\beta} + \boldsymbol{z}\boldsymbol{u} + \boldsymbol{\epsilon}$
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{LME models}}
+\begin{itemize}\itemsep0.7cm
+\item In a linear mixed-effects model, responses from a subject are thought to be the sum (linear) of so-called fixed and random
+effects.
+\item  If an effect, such as a medical treatment, affects the population mean, it is fixed. If an effect is associated with a
+sampling procedure (e.g., subject effect), it is random.
+\item In a mixed-effects model, random effects contribute only to the
+covariance structure of the data.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{Roy's Approach}}
+\begin{itemize}\itemsep0.7cm
+\item unequal number of replications for different subjects
+\item LME model with Kroneckor product covariance structure in a doubly multivariate setup
+\item replicated observations are linked over time
+\end{itemize}
+\end{frame}
+
+
+
+
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Reference Model}}
+\texttt{fit1 = lme(y $\sim$ meth-1,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | /repl),\\
+   \hspace{0.6cm} method="ML")}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 1}}
+\texttt{fit2 = lme(y $\sim$ meth-1,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcb{pdCompSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | /repl),\\
+   \hspace{0.6cm} method="ML")}
+
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 2}}
+\texttt{fit2 = lme(y $\sim$ meth-1,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcb{corCompSymm}(form=$\sim$1 | /repl),\\
+   \hspace{0.6cm} method="ML")}
+\end{frame}
+%------------------------------------------------------------------------%
+
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 3}}
+\texttt{fit4 = lme(y $\sim$ meth-1,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} random = list(item=\tcb{pdCompSymm}($\sim$ meth-1)), \\
+   \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
+   \hspace{0.6cm} correlation = \tcb{corCompSymm}(form=$\sim$1 | /repl),\\
+   \hspace{0.6cm} method="ML")}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Intro}}
+\begin{verbatim}
+>fit2 = lme(y ~ meth-1, data = dat,random = list(item=pdCompSymm(~ meth-1)),
+  correlation = corSymm(form=~1 | item/repl), method="ML")
+>
+>fit3 = lme(y ~ meth-1, data = dat,random = list(item=pdSymm(~ meth-1)),
+  weights=varIdent(form=~1|meth),
+  correlation = corCompSymm(form=~1 | item/repl), method="ML")
+>
+>fit4 = lme(y ~ meth-1, data = dat,random = list(item=pdCompSymm(~ meth-1)),
+ correlation = corCompSymm(form=~1 | item/repl), method="ML")
+
+\end{verbatim}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\subsection{Outline}
+\begin{frame}{\bf \tcb{Outline}}
+\begin{itemize}\itemsep0.7cm
+\item Bland Altman
+\item Method Comparison Studies
+\item Limits of Agreement (Bland Altman 1986)
+\item Likelihood Ratio Tests
+\item Linear Mixed Effects Models
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\subsection{LME Models}
+\begin{frame}{\bf \tcb{LME Models}}
+\begin{itemize}\itemsep0.7cm
+\item Linear Mixed Effects Models
+\item modelled by both Random Effects and Fixed Effects
+\item
+\item Linear models can be seen as a special case of the LME model
+
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\section[Method Comparison Studies]{Method Comparison Studies}
+\subsection{Purpose of Method Comparison Studies}
+\begin{frame}{\bf \tcb{Sub Sec 1}}
+\begin{itemize}\itemsep0.7cm
+\item Stuff
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\section[Method Comparison Studies]{Method Comparison Studies}
+\subsection{Compound Symmetry}
+\begin{frame}{\bf \tcb{Sub Sec 1}}
+\begin{itemize}\itemsep0.7cm
+\item $b_i \sim N(0,D)$
+\item $\epsilon_i \sim N(0,R)$
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\section[Method Comparison Studies]{Method Comparison Studies}
+\subsection{Compound Symmetry}
+\begin{frame}{\bf \tcb{Sub Sec 1}}
+\begin{itemize}\itemsep0.7cm
+\item Symmetric
+\item Compound Symmetry
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------%
+\begin{frame}[fragile]{\bf \tcb{Inter-Method Bias}}
+
+A formal test for inter-method bias can be done by re-specifying the reference model, this time allowing an intercept term.
+
+\texttt{fit1 = lme(y $\sim$ meth,\\
+   \hspace{0.6cm} data = dat,\\
+   \hspace{0.6cm} \ldots}
+
+\begin{verbatim}
+Fixed effects: y ~ meth
+             Value Std.Error  DF t-value p-value
+(Intercept) 127.41    3.3257 424  38.310       0
+methS        15.62    2.0456 424   7.636       0
+
+\end{verbatim}
+\end{frame}
+
+
+%------------------------------------------------------------------------%
+\subsection{Likelihood Ratio Test}
+\begin{frame}{\bf \tcb{Likelihood Ratio Test}}
+\begin{itemize}\itemsep0.7cm
+\item Limits of Agreement
+\item \texttt{anova}
+\item Roy's three conditions.
+\item Variability
+\item Matrices
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{Likelihood Ratio Test}}
+\begin{itemize}\itemsep0.7cm
+\item Limits of Agreement
+\item \texttt{anova}
+\item Inter-Method Bias
+\item Sigma and Delta
+\item Kroneckor Product
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{\bf \tcb{Likelihood Ratio Tests}}
+\begin{verbatim}
+> anova(Ref,NM1)
+    Mdl df  .....  logLik  Test L.Ratio p-value
+Ref  1  8   ..... -2029.8
+NM1  2  6   ..... -2044.0  1 vs 2  28.364  <.0001
+\end{verbatim}
+\end{frame}
+
+
+%Hamleett et al
+%Random Effects
+%Roy
+%Breaking model assumptions
+%meth repl
+%bivariate normal
+%weights
+\begin{frame}{\bf \tcb{Between Subject Variability}}
+\[\left(
+\begin{array}{cc}
+\sigma^2_1 & \sigma_{12}\\
+\sigma_{12} & \sigma^2_2\\
+\end{array}\right)
+\]
+$K_{\sigma}: \sigma^1_1 = \sigma^2_1$\\
+$H_{\sigma}: \sigma^1_1 \neq \sigma^2_1$
+\end{frame}
+
+\begin{frame}{\bf \tcb{Between Subject Variability}}
+\[
+\begin{array}{cc}
+d^2_1 & d_{12}\\
+d_{12} & d^2_2\\
+\end{array}
+\]
+$K_{d}: d^2_1 = d^2_1$\\
+$H_{d}: d^1_1 \neq d^2_1$
+\end{frame}
+%------------------------------------------------------------------------%
+\section[References]{References}
+\subsection{References}
+\begin{frame}{\bf \tcb{References}}
+\begin{thebibliography}{99}
+\bibitem{mccul89} McCullagh, P. and Nelder, J. (1989): \emph{Generalized Linear Models},
+Chapman and Hall/CRC.
+\end{thebibliography}
+\end{frame}
+
+
+\end{document} 
