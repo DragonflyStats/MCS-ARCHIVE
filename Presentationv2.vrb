@@ -1,0 +1,7 @@
+\frametitle {Roy's fixed effects estimates}
+\textbf{Fixed Effects estimates:}\\
+The fixed effects estimates of any model can be used to determine the Inter-method bias. To compute the inter-method bias simple subtract one estimate from the other. \\However , to obtain explicit parameter estimates, such as p-value, a variation of the code, specifying a intercept, can be used;
+\begin{verbatim}
+   MCS1 = lme(BP ~ method, data = dat, ......
+\end{verbatim}
+
