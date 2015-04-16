@@ -190,35 +190,6 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\bf \tcb{Three Conditions for Agreement}}
-	\Large
-	For two methods of measurement to be considered interchangeable, the following conditions must apply \cite{Roy2009}:
-	\\
-	\begin{itemize}\itemsep0.5cm
-		\item No significant inter-method bias
-		\item No difference in the between-subject variabilities of the two methods
-		\item No difference in the within-subject variabilities of the two methods (repeatability)
-	\end{itemize}
-\end{frame}
-%======================================================================= %
-\begin{frame}
-	\frametitle{Inter-Method Bias}
-	\textbf{Suppose true value is 100}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\linewidth]{repeatability1}
-	\end{figure}
-\end{frame}
-%========================================================================== %
-\begin{frame}
-\frametitle{Repeatability}
-\textbf{Suppose true value is 100}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\linewidth]{repeatability2}
-	\end{figure}
-\end{frame}
-%======================================================================== %
 \begin{frame}
 	\frametitle{Gold Standards}
 	\large
@@ -264,20 +235,18 @@ Before widespread acceptance of any new test, the former test retains its status
 \end{figure}
 
 \end{frame}
+%------------------------------------------------------------------------%
 
-\begin{frame}
-\frametitle{Bland-Altman Methdology}
-	\large
-	Bland and Altman suggest that when a new technology
-	has bias and precision comparable with the previous technology, then it may be accepted in the clinical setting:
-	
-	\bigskip
-	\begin{quote} We want to know by how much the new method is likely to
-	differ from the old; if this is not enough to cause problems in clinical
-	interpretation we can replace the old method by the new or use the two interchangeably.?
-	\end{quote}
+\begin{frame}{\bf \tcb{Three Conditions for Agreement}}
+	\Large
+	For two methods of measurement to be considered interchangeable, the following conditions must apply \cite{Roy2009}:
+	\\
+	\begin{itemize}\itemsep0.5cm
+		\item No significant inter-method bias
+		\item No difference in the between-subject variabilities of the two methods
+		\item No difference in the within-subject variabilities of the two methods (repeatability)
+	\end{itemize}
 \end{frame}
-
 %------------------------------------------------------------------------%
 
 \begin{frame}{\bf \tcb{The Bland-Altman Plot}}
@@ -385,7 +354,7 @@ Nothing here that is beyond a Stats 101 course in college.
 		
 		\label{fig:BACITE2}
 	\end{figure}
-(Tukey's Mean Difference Plot)	
+	
 \end{frame}
 %======================================================================== %
 \begin{frame}
@@ -415,16 +384,6 @@ Nothing here that is beyond a Stats 101 course in college.
 \includegraphics[width=0.95\linewidth]{ba2}
 \caption{}
 \label{fig:ba2}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Interpreting the Bland-Altman Plot}
-	
-	\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{BA99-JSR}
 \end{figure}
 
 \end{frame}
@@ -508,18 +467,6 @@ technology, two important factors will influence their decision about how and wh
 \end{figure}
 
 \end{frame}
-%------------------------------------------------------------------------%
-
-\begin{frame}{\bf \tcb{Replicate Measurements}}
-	\large
-	\begin{itemize}\itemsep0.7cm
-		\item Bland and Altman's approach originally devised for a single measurement on each item by each of the methods.
-		\item Their 1999 paper \cite{BA99} extended their approach to replicate measurements:\\ \emph{By replicates we mean two or more measurements on the same
-			individual taken in identical conditions. \\In general this requirement means that the
-			measurements are taken in quick succession. }
-		\item Emphasis put on "repeatability".
-	\end{itemize}
-\end{frame}
 %====================================================================== %
 
 \begin{frame}
@@ -561,69 +508,19 @@ technology, two important factors will influence their decision about how and wh
 	\end{figure}
 	
 \end{frame}
-\begin{frame}
-\frametitle{Deming Regression}
-\begin{itemize}
-	\item In OLS $X$ variable is considered to be measured without error. All error is associated with measurement of $Y$ variable.
-	\item Bad assumption for method comparison studies
-	\item Consider both sets of measurements to be measured with errors.
-	\item This is called ``Error in Variables" regression or ``Deming Regression".
+%------------------------------------------------------------------------%
+
+\begin{frame}{\bf \tcb{Replicate Measurements}}
+	\large
+\begin{itemize}\itemsep0.7cm
+\item Bland and Altman's approach originally devised for a single measurement on each item by each of the methods.
+\item Their 1999 paper \cite{BA99} extended their approach to replicate measurements:\\ \emph{By replicates we mean two or more measurements on the same
+individual taken in identical conditions. \\In general this requirement means that the
+measurements are taken in quick succession. }
+\item Emphasis put on "repeatability".
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-
-\textbf{Error in Variables Regression}	
-\begin{figure}
-\centering
-\includegraphics[width=0.99\linewidth]{demingregression1}
-\end{figure}
-
-\end{frame}
-%=============================================================== %
-\begin{frame}
-	\frametitle{Deming Regression - The Variance Ratio }
-	
-\begin{itemize}
-	\item Variance ratio: this is the ratio of the measurement errors of X and Y.
-	\item Often dont know what it is
-	\item Default setting \texttt{vr = 1}
-	\item Can specify other variance ratios.
-\end{itemize}
-Also Deming regression doesn't consider replicate measurements.
-\end{frame}
-%=============================================================== %
-\begin{frame}
-\frametitle{The \texttt{Deming()} command. (MethComp Package) }
-\vspace{-0.5cm}
-	\begin{figure}
-\centering
-\includegraphics[width=1.05\linewidth]{Deming1}
-
-\end{figure}
-
-\end{frame}
-%============================================================== %
-\begin{frame}
-	
-	\frametitle{The \texttt{Deming()} command. (MethComp Package) }
-	\vspace{-0.5cm}
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.05\linewidth]{Deming1}
-
-	\end{figure}
-	
-\end{frame}
-%============================================================== %
-\begin{frame}
-	\begin{figure}
-\centering
-\includegraphics[width=1.05\linewidth]{CRAN-mcr}
-
-\end{figure}
-
-\end{frame}
 %------------------------------------------------------------------------%
 
 \begin{frame}{\bf \tcb{Three Conditions}}
@@ -637,95 +534,14 @@ For two methods of measurement to be considered interchangeable, the following c
 \end{frame}
 
 \section[Roy's LME Model]{Roy's LME Model}
-
-
 \subsection{Roy's LME Model}
 %------------------------------------------------------------------------%
 \begin{frame}{\bf \tcb{LME models}}
 \begin{itemize}\itemsep0.7cm
 \item In a linear mixed-effects model, responses from a subject are due to both fixed and random
-effects. 
-\item A random effect is an effect associated with a sampling procedure.
+effects. A random effect is an effect associated with a sampling procedure.
 \item Replicate measurements would require use of random effect terms in model.
 \item Can have differing number of replicate measurements for different subjects.
-\end{itemize}
-\end{frame}
-\begin{frame}
-	In matrix notation a mixed model can be represented as
-	\[\boldsymbol{y} = X \boldsymbol{\beta} + Z \boldsymbol{u} + \boldsymbol{\epsilon}\]
-	where
-	\begin{itemize}
-		\item $\boldsymbol{y}$ is a known vector of observations, with mean $E(\boldsymbol{y}) = X \boldsymbol{\beta}$.
-		\item $\boldsymbol{\beta}$ is an unknown vector of fixed effects.
-		\item $\boldsymbol{u}$ is an unknown vector of random effects, with mean $E(\boldsymbol{u})=\boldsymbol{0}$ and variance-covariance matrix $\operatorname{var}(\boldsymbol{u})=D$
-		\item $\boldsymbol{\epsilon}$ is an unknown vector of random errors, with mean $E(\boldsymbol{\epsilon})=\boldsymbol{0}$ and variance $\operatorname{var}(\boldsymbol{\epsilon})=R$
-		\item $X$ and $Z$ are known design matrices relating the observations $\boldsymbol{y}$ to $\boldsymbol{\beta}$ and $\boldsymbol{u}$, respectively.
-	\end{itemize}
-	\end{frame}
-%------------------------------------------------------------------------%
-\begin{frame}{\bf \tcb{The \texttt{nlme} Package}}
-	\large
-	\begin{itemize}
-		\item LME models can be implemented in \texttt{R} using the \texttt{nlme} package, one of the core packages.\\
-		\item Authors: Jose Pinheiro, Douglas Bates (up to 2007), Saikat
-		DebRoy (up to 2002), Deepayan Sarkar (up to 2005), the \texttt{R} Core team \\(source: \texttt{nlme} package manual)\\
-		\item ``Mixed-Effects Models in S and S-PLUS" by JC Pinheiro and DM Bates (Springer,2000)
-		
-	\end{itemize}
-	
-\end{frame}
-%======================================================================== %
-\begin{frame}
-	\begin{figure}
-\centering
-\includegraphics[width=1.05\linewidth]{CRAN-nlme}
-
-\end{figure}
-
-\end{frame}
-\begin{frame}
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.05\linewidth]{CRAN-nlmeU}
-	\end{figure}
-	
-\end{frame}
-
-\begin{frame}
-\frametitle{nlme Package}
-\large
-\begin{itemize}
-	\item \textbf{nlme} is the most mature one and comes by default with any R installation.
-	\item In addition to fitting hierarchical generalized linear mixed models it also allows fitting non-linear ones. 
-	\item Its main advantages are the ability to fit fairly complex hierarchical models using linear or non-linear approaches, \textbf{a good variety of variance and correlation structures}, and access to several distributions and link functions for generalized models.
-	\end{itemize}
-\end{frame}
-%================================================================= %
-\begin{frame}
-	\begin{figure}
-\centering
-\includegraphics[width=0.5\linewidth]{PinheiroBates}
-\caption{Mixed Effect Models in S and S-Plus}
-
-\end{figure}
-
-\end{frame}
-\begin{frame}
-	\begin{figure}
-\centering
-\includegraphics[width=1.05\linewidth]{CRAN-lme4}
-\end{figure}
-
-\end{frame}
-%======================================================================== %
-
-
-\begin{frame}
-\frametitle{lme4 R pacakge}
-\begin{itemize}
-\item	lme4 is a project looking at modernizing the code and making room for trying new ideas. 
-\item On the positive side, it seems to be a bit faster than nlme and it deals a lot better with cross-classified random factors. 
-\item Drawbacks:it doesn?t deal with covariance and correlation structures yet. 
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------------------%
@@ -773,69 +589,42 @@ d_{12} & d^2_2\\ \end{array}\right]\boldsymbol{Z}^{\prime}_i  +  \left(V \otimes
 
 \end{itemize}
 \end{frame}
-%============================================================================ %
-\begin{frame}
-	\frametitle{Variance Covariance Structures}
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{compsymm}
-\end{figure}
 
-\end{frame}
-%============================================================================= %
-%\section[Implementation]{Implementation}
+
+
+\section[Implementation]{Implementation}
 \subsection{Implementation}
 
 \begin{frame}{\bf \tcb{Variance-Covariance Structures}}
-	{
-	\Large
 \[\left(
 \begin{array}{cc}
 \sigma^2_1 & \sigma_{12}\\
 \sigma_{12} & \sigma^2_2\\
 \end{array} \right)
 \]
-}
-\large
-\vspace{-1.4cm}
+
 \begin{itemize}
-\item \textbf{Symmetric} structure specifies that $\sigma^2_1$ may differ from $\sigma^2_2$.
-\item \textbf{Compound symmetric} structure specifies that $\sigma^2_1 = \sigma^2_2$. \bigskip
+\item Symmetric structure specifies that $\sigma^2_1$ may differ from $\sigma^2_2$.
+\item Compound symmetric structure specifies that $\sigma^2_1 = \sigma^2_2$.
 \item In both cases, $\sigma_{12}$ may take value other than 0.
 \end{itemize}
 
 \end{frame}
-%========================================================================= %
-\begin{frame}
-	\frametitle{Likelihood Ratio Test}
-	\large
-	\begin{itemize}
-	\item A likelihood ratio test is a statistical test used to compare the goodness of fit of two models, one of which (the null model) is a special case of the other (the alternative model). 
-	\item The test is based on the likelihood ratio, which expresses how many times more likely the data are under one model than the other. 
-	\item This likelihood ratio, or equivalently its logarithm, can then be used to compute a p-value, or compared to a critical value to decide whether to reject the null model in favour of the alternative model. 
-	\end{itemize}
+%------------------------------------------------------------------------%
+\begin{frame}{\bf \tcb{The \texttt{nlme} Package}}
 
-\end{frame}
+\begin{itemize}
+\item LME models can be implemented in \texttt{R} using the \texttt{nlme} package, one of the core packages.\\
+\item Authors: Jose Pinheiro, Douglas Bates (up to 2007), Saikat
+DebRoy (up to 2002), Deepayan Sarkar (up to 2005), the \texttt{R} Core team \\(source: \texttt{nlme} package manual)\\
+\item ``Mixed-Effects Models in S and S-PLUS" by JC Pinheiro and DM Bates (Springer,2000)
 
-
-%========================================================================= %
-\begin{frame}
-	\frametitle{Likelihood Ratio Test}
-	\large
-
-Each of the two competing models, the null model and the alternative model, is separately fitted to the data and the log-likelihood recorded. The test statistic (often denoted by D) is twice the difference in these log-likelihoods:
-{
-\normalsize
-\begin{align}
-D & = -2\ln\left( \frac{\text{likelihood for null model}}{\text{likelihood for alternative model}} \right) \\
-&= -2\ln(\text{likelihood for null model}) + 2\ln(\text{likelihood for alternative model}) 
-\end{align}
-}
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------%
-\begin{frame}[fragile]{\bf \tcb{The Test Model}}
-\texttt{TEST = lme(y $\sim$ meth,\\
+\begin{frame}[fragile]{\bf \tcb{The Reference Model}}
+\texttt{REF = lme(y $\sim$ meth,\\
    \hspace{0.6cm} data = dat,\\
    \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
    \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
@@ -848,61 +637,47 @@ D & = -2\ln\left( \frac{\text{likelihood for null model}}{\text{likelihood for a
 \end{frame}
 
 %------------------------------------------------------------------------%
-\begin{frame}[fragile]{\bf \tcb{The Null Model 1}}
-
-\begin{framed}
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 1}}
 \texttt{NMB = lme(y $\sim$ meth,\\
    \hspace{0.6cm} data = dat,\\
    \hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
    \hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
    \hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | item/repl),\\
    \hspace{0.6cm} method="ML")}
-\end{framed}
+
 \begin{itemize}
 \item LME model that specifies a compound symmetric matrix structure for between-subject and symmetric structure within-subject variances.
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------%
-\begin{frame}[fragile]{\bf \tcb{The Null Model 2}}
-
-\begin{framed}
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 2}}
 \texttt{NMW = lme(y $\sim$ meth,\\
    \hspace{0.6cm} data = dat,\\
    \hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
    \hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
    \hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | item/repl),\\
    \hspace{0.6cm} method="ML")}
-\end{framed}
    \begin{itemize}
 \item LME model that specifies a symmetric matrix structure for between-subject and compound symmetric structure within-subject variances.
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------------------%
 
-\begin{frame}[fragile]{\bf \tcb{The Null Model 3}}
-
-	\begin{framed}
+\begin{frame}[fragile]{\bf \tcb{The Nested Model 3}}
 \texttt{NMO = lme(y $\sim$ meth,\\
    \hspace{0.6cm} data = dat,\\
    \hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
    \hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
    \hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | /repl),\\
    \hspace{0.6cm} method="ML")}
-\end{framed}
    \begin{itemize}
-\item LME model that specifies a compound symmetric matrix structure for \textbf{both} between-subject and within-subject variances.
+\item LME model that specifies a compound symmetric matrix structure for both between-subject and within-subject variances.
 \end{itemize}
 \end{frame}
-\begin{frame}
-\frametitle{Three Tests}
-\large
-\begin{itemize}
-\item Equal Between Subject Variances \[ d^2_1 = d^2_2 \] \vspace{0.3cm}
-\item Equal Within Subject Variances \[ \sigma^2_1 = \sigma^2_2\] \vspace{0.3cm}
-\item Omnibus Test \[ ( d^2_1 + \sigma^2_1) = (d^2_2 + \sigma^2_2)\]
-\end{itemize}
-\end{frame}
+
+
+
 %------------------------------------------------------------------------%
 \section[Example]{Example}
 \subsection{Example}
@@ -1055,11 +830,6 @@ NMW     2  7 ... -2045.044 1 vs 2 28.61679  <.0001
 \vspace{0.25cm}\item Within-subject variance: A significant difference in within-subject variances is detected.\\
 \vspace{0.25cm}\item Can not recommend switching between the two methods.
 \end{itemize}
-\end{frame}
-\begin{frame}
-Carsstensen describes the calculation of the limits of agreement (with the inter-method bias implicit) for both data sets, based on his formulation;
-
-\[\hat{\alpha}_1 - \hat{\alpha}_2 \pm 2\sqrt{2\hat{\tau}^2 +\hat{\sigma}_1^2 +\hat{\sigma}_2^2 }.\]
 \end{frame}
 %------------------------------------------------------------------------%
 \begin{frame}[fragile]{\bf \tcb{Remarks}}
