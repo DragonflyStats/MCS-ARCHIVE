@@ -54,6 +54,7 @@
 % Standard packages
 \usepackage{graphicx}
 \usepackage[english]{babel}
+\usepackage{framed}
 \usepackage[latin1]{inputenc}
 \usepackage{times}
 \usepackage[T1]{fontenc}
@@ -106,13 +107,81 @@
 % JSR Blood data
 
 %------------------------------------------------------------------------------%
+\begin{frame}
+	\frametitle{Medical statistics }
+	\large
+	\begin{figure}
+\centering
+\includegraphics[width=0.4\linewidth]{medstats}
+\end{figure}
 
+	\begin{itemize}
+		\item Applications to medicine and the health sciences, including epidemiology, public health, forensic medicine, and clinical research. 
+		\item "Biostatistics" more commonly connotes all applications of statistics to biology.
+		\item Clinical Research is main focus for this talk - Method Comparison Studies
+	\end{itemize}
+\end{frame}	
+	%================================%
+	
+	\begin{frame}
+		\frametitle{Medical Statistics}
+		\large
+		\begin{quote} 
+			"It is the science of summarizing, collecting, presenting and interpreting data in medical practice, and using them to estimate the magnitude of associations 
+			and test hypotheses. 
+			
+			
+			It has a central role in medical investigations. It not only provides a way of organizing information on a wider and more formal basis than relying on the exchange of anecdotes and personal experience, but also takes 
+			into account the intrinsic variation inherent in most biological processes." 
+			
+		\end{quote}
+		(Kirkwood, Betty R. (2003). "Essential Medical Statistics")
+	\end{frame}
+	
+	%=================================%
+	
+	\begin{frame}
+		\frametitle{Pharmaceutical statistics}
+		\large
+		Pharmaceutical statistics is the application of statistics to matters concerning the pharmaceutical industry. \\ \bigskip
+		This can be from issues of design of experiments, to analysis of drug trials, to issues of commercialization of a medicine.\\ \bigskip
+		There are many professional bodies concerned with this field including:
+		\begin{itemize} 
+			\item European Federation of Statisticians in the Pharmaceutical Industry (EFSPI)
+			\item Statisticians In The Pharmaceutical Industry (PSI)
+		\end{itemize}
+\end{frame}
+		%================================%
+		
+		
+\begin{frame}
+\frametitle{Medical Measurement}
+\begin{figure}
+\centering
+\includegraphics[width=0.4\linewidth]{"clinical measurement"}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.35\linewidth]{diabetes}
+\includegraphics[width=0.35\linewidth]{bpcuff}
+\end{figure}
 
+\end{frame}
+%================================================================================ %
+\begin{frame}
+	
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{invasiveprocedures}
+\end{figure}
+
+\end{frame}
 
 %------------------------------------------------------------------------%
 \section[Intro to MCS]{Introduction to Method Comparison Studies}
-\subsection{Method Comparison Studies}
-\begin{frame}{\bf \tcb{Intro}}
+%\subsection{Method Comparison Studies}
+\begin{frame}{\bf \tcb{Method Comparison Studies}}
+	\large
 \begin{itemize}\itemsep0.7cm
 \item Commonly encountered issue in medical statistics
 \item ``Do two methods of measurement agree statistically?".
@@ -120,25 +189,74 @@
 \item Sources of disagreement can arise from differing population means (i.e. inter-method bias), differing between-subject and with-in subject variances \cite{Roy2009}.
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Gold Standards}
+	\large
+\textbf{Gold Standard Methods of Measurement}
+\begin{itemize}
+\item	Gold standard test usually refers to a diagnostic test or benchmark that is the best available under reasonable conditions.
+	
+\item	Other times, gold standard is used to refer to the most accurate test possible without restrictions.
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\large
+\begin{framed}
+	\begin{quote}
+For instance, for the diagnosis of aortic dissection, the "gold standard" test used to be the aortogram, which had a sensitivity as low as 83\% and a specificity as low as 87\%. 
+
+Since the advancements of magnetic resonance imaging, the magnetic resonance angiogram (MRA) has become the new "gold standard" test for aortic dissection, with a sensitivity of 95\% and a specificity of 92\%. 
+
+Before widespread acceptance of any new test, the former test retains its status as the "gold standard."
+\end{quote}
+\end{framed}
+
+\end{frame}
+%======================================================================== %
+\begin{frame}
+	\frametitle{Methods of Measurement}
+	\textbf{Comparing against a Gold Standard}
+	\begin{figure}
+\centering
+\includegraphics[width=0.18\linewidth]{watertest}
+\includegraphics[width=0.36\linewidth]{calipers}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=1.05\linewidth]{airqualitysensornewsarticle}
+
+\end{figure}
+
+\end{frame}
 %------------------------------------------------------------------------%
 
 \begin{frame}{\bf \tcb{The Bland-Altman Plot}}
+	\large
 \begin{itemize}\itemsep0.7cm
 
 \item The Bland-Altman plot \cite{BA86,BA99} is a very simple graphical method to compare two measurements techniques. \item In this approach the case-wise differences between the two methods are plotted against the corresponding case-wise averages of the two methods.
 
-\item A horizontal lines is drawn at the mean difference(the inter-method bias) , and at the limits of agreement, which are defined as the inter-method bias plus and minus 2 times the standard deviation of the differences.
+\item A horizontal lines is drawn at the mean difference(the\textbf{ inter-method bias}) , and at the \textbf{limits of agreement}, which are defined as the inter-method bias plus and minus 2 times the standard deviation of the differences.
 
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Bland-Altman Plot}
+\vspace{-0.3cm}
+\begin{framed}
 \begin{verbatim}
 >X = rnorm(14,6,1);Y = rnorm(14,5.3,1.1)
 >
 >A=(X+Y)/2		#case-wise averages
->D=X-Y			#case-wise differences
+>D=X-Y			    #case-wise differences
 >		
 >Dbar=mean(D)	#inter-method bias
 >SdD=sd(D)		#standard deviation of the differences
@@ -149,24 +267,44 @@
 >abline(h=(Dbar-2*SdD),lty=2)
 >abline(h=(Dbar+2*SdD),lty=2)
 \end{verbatim}
+\end{framed}
 \end{frame}
-
-
+%===================================================================== %
 \begin{frame}
 	\vspace{-0.1cm}
-\textbf{Inter-method Bias : 0.27 | Limits of Agreement: [-1.98, 2.52]}
-\vspace{-0.2cm}
-\begin{figure}
-\centering
-\includegraphics[width=0.6\linewidth]{NewBAplot2}
-\label{fig:SimpleBAplot2}
-\end{figure}
-
-
+	\textbf{Inter-method Bias : 0.27 | Limits of Agreement: [-1.98, 2.52]}
+	\vspace{-0.2cm}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{NewBAplot2}
+		\label{fig:SimpleBAplot2}
+	\end{figure}
+	
+	
 \end{frame}
+%======================================================================= %
+\begin{frame}[fragile]
+	\frametitle{Bland-Altman Plot}
+	\vspace{-0.2cm}
+\large
+\textbf{Building Blocks}
+\begin{enumerate}
+\item Simple Arithmetic Operations
+\item Sample Mean  - \texttt{mean()}
+\item Sample Standard deviation - \texttt{sd()}
+\item Scatter plot  - \texttt{plot()}
+\item Normal Distribution Theory
+\item Enhancing plots  - basic \texttt{R} knowledge 
+\end{enumerate}
+
+Nothing here that is beyond a Stats 101 course in college.
+\end{frame}
+%====================================================================== %
+
 
 
 \begin{frame}
+\textbf{In excess of 30000 citations}
 	\begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]{BACITE}
@@ -175,15 +313,17 @@
 \end{figure}
 
 \end{frame}
+%======================================================================== %
 \begin{frame}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.9\linewidth]{BACITENATURE}
+		\includegraphics[width=0.99\linewidth]{BACITENATURE}
 		
 		\label{fig:BACITENATURE}
 	\end{figure}
 	
 \end{frame}
+
 %=================================================================== %
 \begin{frame}
 	\begin{figure}
@@ -204,15 +344,90 @@
 	\end{figure}
 	
 \end{frame}
+%======================================================================== %
+\begin{frame}
+\frametitle{R Packages for Bland-Altman Analysis}
+\large
+\begin{description}
+	\item[PairedData] has a function \texttt{plotBA} based on ggplot2 and no stats as return value
+	\item[ResearchMethods] has a function \texttt{BlandAltman} which focuses on a GUI and has no return values.
+	\item[epade] has a function \texttt{bland.altman.ade} which appears to have no return values.
+	\item[MethComp] has a functino BlandAltman that is deprecated and a function \texttt{ba.plot} which does a lot, mainly regression methods
+\end{description}
+	\end{frame}
+%=========================================================================== %
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=1.05\linewidth]{CRAN-MethComp}
+
+\end{figure}
+
+\end{frame}
+\begin{frame}
+	\frametitle{Interpreting the Bland-Altman Plot}
+	
+	\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth]{ba2}
+\caption{}
+\label{fig:ba2}
+\end{figure}
+
+\end{frame}
+%======================================================================== %
+\begin{frame}
+		\frametitle{Interpreting the Bland-Altman Plot}
+	\begin{figure}
+\centering
+\includegraphics[width=0.85\linewidth]{BAOutliers}
+\caption{}
+\label{fig:BAOutliers}
+\end{figure}
+
+\end{frame}
+%======================================================================== %
+\begin{frame}
+	\frametitle{Interpreting the Bland-Altman Plot}
+	\begin{figure}
+\centering
+\includegraphics[width=0.85\linewidth]{BAFanEffect}
+\caption{}
+\label{fig:BAFanEffect}
+\end{figure}
+
+\end{frame}
 %------------------------------------------------------------------------%
 
+\begin{frame}
+	\frametitle{Interpreting the Bland-Altman Plot}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{BAcombi}
+		\caption{}
+		\label{fig:BAcombi}
+	\end{figure}
+	
+\end{frame}
+%======================================================================== %
 \begin{frame}{\bf \tcb{The Bland-Altman Plot: Prevalence}}
+\large
 \begin{itemize}\itemsep0.7cm
 
 \item Limits of Agreement are used extensively in medical literature for assessing agreement between two methods.
 \item Building Blocks are featured in almost every undergraduate statistics course (i.e. Mean, Standard Deviation, Scatterplot, Normal Distribution)
-\item Other graphical techniques, such as \textit{Survival-Agreement Plot} (based on Kaplan-Meier Curve) and \textit{Mountain Plot} not prevalent at all.
+\item Other graphical techniques, such as \textit{Survival-Agreement Plot} (based on Kaplan-Meier Curve) and \textit{Mountain Plot} have been developed, but are not prevalent at all.
 \end{itemize}
+\end{frame}
+
+%========================================================================== %
+\begin{frame}
+	\frametitle{Kaplan Meier Survival Curve}
+	\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{kaplanmeier}
+\end{figure}
+
 \end{frame}
 %========================================================================= %
 \section{TAM and SHINY}
@@ -234,7 +449,7 @@ technology, two important factors will influence their decision about how and wh
 
 \begin{figure}
 \centering
-\includegraphics[width=0.79\linewidth]{TechAccept}
+\includegraphics[width=0.89\linewidth]{TechAccept}
 \caption{Technology Acceptance Model Flowchart (Davis,1989)}
 \label{fig:TechAccept}
 \end{figure}
@@ -246,9 +461,9 @@ technology, two important factors will influence their decision about how and wh
 	\Large
 	\begin{itemize}
 		\item Bland-Altman method not very good on it's own.
-		\item Develop a proper methodology for MCS
-		
-		\item Get people to use it!
+		\item Does not account for Replicate Measurements.
+		\item Useful as a diagnostic method subsequent to other methods.
+		\item Develop a proper methodology for MCS and Get people to use it!
 	\end{itemize}
 \end{frame}
 
@@ -265,15 +480,15 @@ technology, two important factors will influence their decision about how and wh
 \begin{frame}
 \frametitle{Shiny Web Applications with R}
 \Large
-Useful Shiny Resources
-
+\textbf{Useful Shiny Resources}
+\bigskip
 \begin{itemize}
 \item  shiny.rstudio.com \bigskip
 \item  showmeshiny.com \bigskip
 \item  shiny.snap.uaf.edu/ \bigskip
 \end{itemize}
 \end{frame}
-
+%============================================================================ %
 \begin{frame}
 	\begin{figure}
 		\centering
@@ -284,6 +499,7 @@ Useful Shiny Resources
 %------------------------------------------------------------------------%
 
 \begin{frame}{\bf \tcb{Replicate Measurements}}
+	\large
 \begin{itemize}\itemsep0.7cm
 \item Bland and Altman's approach originally devised for a single measurement on each item by each of the methods.
 \item Their 1999 paper \cite{BA99} extended their approach to replicate measurements:\\ \emph{By replicates we mean two or more measurements on the same
