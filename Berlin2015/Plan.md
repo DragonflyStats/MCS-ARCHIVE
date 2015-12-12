@@ -6,14 +6,14 @@
     - Technology Acceptance Model (TAM) 
         - Comparing to Luiz and Krouwer Monti
 3. Regression Methods
-    A. Deming Regression (MethComp and mcr)
-        -  Variance Ratios
-    B. Passing-Bablok Regression
+    - Deming Regression (MethComp and mcr)
+        -  Variance Ratios (Dunn)
+    - Passing-Bablok Regression
 4. LME Models
-    A. R Packages (nlme and LME4)
-    B. Barnhart Criterion for Agreement 
-    C. Roy's Test
+    - R Packages (nlme and LME4)
+    - Barnhart Criterion for Agreement 
+    - Roy's Test
 5. Diagnostics
-    A. influence.me
-    B. Cook's Distance
+    - influence.me
+    - Cook's Distance
 
