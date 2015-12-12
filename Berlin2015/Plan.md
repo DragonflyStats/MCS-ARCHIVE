@@ -1,9 +1,9 @@
 
 1. Introduction to MCS Problem 
-    A. Context of Problem
+    - Context of Problem
 2. Bland Altman Plots
-    A. Limits of Agreement 
-    B. Technology Acceptance Model (TAM) 
+    - Limits of Agreement 
+    - Technology Acceptance Model (TAM) 
         - Comparing to Luiz and Krouwer Monti
 3. Regression Methods
     A. Deming Regression (MethComp and mcr)
