@@ -1,9 +1,0 @@
-\beamer@endinputifotherversion {3.22pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Intro}{1}{0}{1}
-\beamer@subsectionintoc {1}{1}{Outline}{1}{0}{1}
-\beamer@sectionintoc {2}{New Sec}{2}{0}{2}
-\beamer@subsectionintoc {2}{1}{Sub Sec 1}{2}{0}{2}
-\beamer@subsectionintoc {2}{2}{Sub Sec 2}{3}{0}{2}
-\beamer@sectionintoc {3}{References}{4}{0}{3}
-\beamer@subsectionintoc {3}{1}{References}{4}{0}{3}

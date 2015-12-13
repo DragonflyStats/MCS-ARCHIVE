@@ -1,8 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Additional Remarks on Bland-Altman Analysis (Optional)}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Popularity of the Bland-Altman Method}{4}{0}{1}
-\beamer@subsectionintoc {1}{2}{Regression Techniques}{6}{0}{1}
-\beamer@subsectionintoc {1}{3}{Treatment of Outliers}{7}{0}{1}
-\beamer@subsectionintoc {1}{4}{Variations of the Bland-Altman Plot (optional)}{20}{0}{1}
-\beamer@sectionintoc {2}{Formal Methods (Optional)}{26}{0}{2}

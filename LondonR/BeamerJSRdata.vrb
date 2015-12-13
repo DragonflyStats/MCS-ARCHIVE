@@ -1,5 +1,0 @@
-\frametitle {\bf \tcb {Remarks}}\begin {itemize}
-\item Can perform a test for equality of overall variances.\\
-\vspace{0.25cm}\item This can be done by specifying a compound symmetry structure for both between-subject and within-subject variances when constructing a nested model.\\
-\vspace{0.25cm}\item Roy controls the family-wise error rate in paper, using Bonferroni correction procedure.
-\end{itemize}

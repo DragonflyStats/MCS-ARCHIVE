@@ -1,4 +1,0 @@
-\beamer@endinputifotherversion {3.26pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Regression Methods - "mcr" and Deming regression}{1}{0}{1}
-\beamer@subsectionintoc {1}{1}{Error in Variables Deming Regression}{5}{0}{1}

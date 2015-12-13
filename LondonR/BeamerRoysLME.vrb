@@ -1,6 +1,0 @@
-\frametitle {\bf \tcb {Likelihood Ratio Tests}}\begin {verbatim}
-> anova(Ref,NM1)
-    Mdl df  .....  logLik  Test L.Ratio p-value
-Ref  1  8   ..... -2029.8
-NM1  2  6   ..... -2044.0  1 vs 2  28.364  <.0001
-\end{verbatim}

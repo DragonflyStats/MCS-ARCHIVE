@@ -1,7 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Bland-Altman Methods}{1}{0}{1}
-\beamer@subsectionintoc {1}{1}{Bland-Altman Difference Plot}{1}{0}{1}
-\beamer@sectionintoc {2}{Grubbs - Data Example}{10}{0}{2}
-\beamer@subsectionintoc {2}{1}{Interpreting Bland-Altman Plots}{15}{0}{2}
-\beamer@sectionintoc {3}{Replicate Measurements}{26}{0}{3}

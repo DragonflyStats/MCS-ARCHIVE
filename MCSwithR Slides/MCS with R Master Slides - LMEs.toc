@@ -1,7 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {english}
-\beamer@sectionintoc {1}{Roy (2009) Formal Tests}{1}{0}{1}
-\beamer@subsectionintoc {1}{1}{Roy's Hypothesis Tests for MCS}{4}{0}{1}
-\beamer@subsectionintoc {1}{3}{Implementation}{15}{0}{1}
-\beamer@subsectionintoc {1}{4}{Example}{21}{0}{1}
-\beamer@subsectionintoc {1}{5}{Roy's LOAs}{25}{0}{1}

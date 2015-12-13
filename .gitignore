@@ -1,9 +1,3 @@
-# R Studio files
-.Rproj.user
-.Rhistory
-.RData
-.Rproj
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -76,6 +70,9 @@ acs-*.bib
 *.glo
 *.gls
 
+# gnuplottex
+*-gnuplottex-*
+
 # hyperref
 *.brf
 
@@ -86,3 +83,44 @@ acs-*.bib
 
 # listings
 *.lol
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+*.ist
+
+# minitoc
+*.maf
+*.mtc
+*.mtc0
+
+# minted
+_minted*
+*.pyg
+
+# morewrites
+*.mw
+
+# nomencl
+*.nlo
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# sympy
+*.sout
+*.sympy
+sympy-plots-for-*.tex/
+
+# todonotes
+*.tdo
+
+# xindy
+*.xdy
+
+# WinEdt
+*.bak
+*.sav
