@@ -1,0 +1,70 @@
+	
+Two LME models are fitted to the data, one using the nlme package, one with the lme4 package. These models shall be called ``blood.nlme" and ``blood.lme4" respectively.
+In both cases the method is characterized by a fixed effect, while there is a random effect for each subject.
+This random effect accounts for the replicate measurements associated with each subject.
+The differences between the estimate provided by the respective models are negligible, due to the simplicity of the model specification.
+
+
+	
+	\chapter{Fitting LME Models}
+	%\subsection{Overview of R implementations}
+	Further to previous material, an appraisal of the current state of development for statistical software for fitting for LME models, particularly for \texttt{nlme} and \texttt{lme4} fitted models.
+	
+	%======================%
+	% lme4 and influence.ME
+	
+	The \textbf{lme4} pacakge is used to fit linear and generalized linear mixed-effects models in the R environment.
+	The \textbf{lme4} package is also under active development, under the leadership of Ben Bolker (McMaster Uni., Canada).
+	
+	
+	Crucially, a review of internet resources indicates that almost all of the progress in this regard has been done for \texttt{lme4} fitted models, specifically the \textit{Influence.ME} \texttt{R} package. (Nieuwenhuis et al 2014)
+	Conversely there is very little for \texttt{nlme} models. One would immediately look at the current development workflow for both packages.
+	
+	%======================%
+	% Douglas Bates
+	
+	As an aside, Douglas Bates was arguably the most prominent \texttt{R} developer working in the LME area. 
+	However Bates has now prioritised the development of LME models in another computing environment , i.e Julia. 
+	% The current version of this is XXXX
+	
+	%======================%
+	% nlme
+	
+	With regards to \texttt{nlme}, the package is now maintained by the \texttt{R} core development team. The most recent major text is by Galecki \& Burzykowski, who have published \textit{ Linear Mixed Effects Models using \texttt{R}. }
+	Also, the accompanying \texttt{R} package, nlmeU package is under current development, with a version being released $0.70-3$.
+	
+	
+	\section{Fitting Models with nlme R package}
+	
+	%-------------------------------------------------------------------------------------------------------------------------------------%
+	\section{Fitting Models with the LME4 R package}
+	Maximum likelihood or restricted maximum likelihood (REML) estimates of the parameters in linear mixed-effects models can be determined using the \texttt{lmer} function in the lme4 package for R. As for most model-fitting functions in R, the model is described in an \texttt{lmer} call by a formula, in this case including both fixed- and random-effects terms. 
+	
+	The formula and data together determine a numerical representation of the model from which the profiled deviance or the profiled REML criterion can be evaluated as a function of some of the model parameters. The appropriate criterion is optimized, using one of the constrained optimization functions in \texttt{R}, to provide the parameter estimates. We describe the structure of the model, the steps in evaluating the profiled deviance or REML criterion, and the structure of classes or types that represents such a model. 
+	
+	Sufficient detail is included to allow specialization of these structures by users who wish to write functions to fit specialized linear mixed models, such as models incorporating pedigrees or smoothing splines, that are not easily expressible in the formula language used by lmer.
+	
+	
+	\begin{description}
+		\item[\texttt{y}] : Response variable
+		\item[\texttt{method}] : Method of Measurement
+		\item[\texttt{subject}] : Subject
+		\item[\texttt{MCSdata}] 
+	\end{description}
+	\begin{framed}
+		\begin{verbatim}
+		library(lme4)
+		
+		MCS.lme4 <- lmer(y ~ method-1 + (1|subject) , data=MCSdata)
+		\end{verbatim}
+	\end{framed}
+	\newpage
+	
+	%=====================%
+	\subsection{Important Consideration for MCS}
+	
+	The key issue is that \texttt{nlme} allows for the particular specification of Roy's Model, specifically direct specification of the VC matrices for within subject and between subject residuals.
+	
+	The \texttt{lme4} package does not allow for Roy's Model, for reasons that will identified shortly.
+	To advance the ideas that eminate from Roys' paper, one is required to use the \texttt{nlme} context. However, to take advantage of the infrastructure already provided for \texttt{lme4} models, one may change the research question away from that of Roy's paper. 
+	To this end, an exploration of what textbf{influence.ME} can accomplished is merited.
