@@ -1,7 +1,12 @@
 
 1. Introduction to MCS Problem 
     - Context of Problem
+    - Drop Medical Statistics
+    - Invasive Procedures : add caption
+    - Fix up slide 9 (Criteria)
+    - Demonstration of Taskview and Packages
 2. Bland Altman Plots
+    - The Point of Simplicity
     - Limits of Agreement 
     - Technology Acceptance Model (TAM) 
         - Comparing to Luiz and Krouwer Monti
