@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://article.gmane.org/gmane.comp.lang.r.rcpp/6518 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Question on lme4 book</title>
+    <link href="./Question on lme4 book_files/gmane.css" rel="stylesheet" type="text/css">
+    <link rel="SHORTCUT ICON" href="http://gmane.org/favicon.ico">
+</head>
+<body bgcolor="white" text="black" class="main" data-pinterest-extension-installed="cr1.39.1">
+  <table cellpadding="5" cellspacing="10" class="main">
+  <tbody><tr valign="top">
+  <td class="maintd">
+  <div class="tdiv">
+  <div>
+  <a href="http://gmane.org/">Home</a><br>
+  <a href="http://dir.gmane.org/">Reading</a><br>
+  <a href="http://search.gmane.org/">Searching</a><br>
+  <a href="http://gmane.org/subscribe.php">Subscribe</a><br>
+  <a href="http://gmane.org/sponsors.php">Sponsors</a><br>
+  <a href="http://gmane.org/stats.php">Statistics</a><br>
+  <a href="http://gmane.org/post.php">Posting</a><br>
+  <a href="http://gmane.org/contact.php">Contact</a><br>
+  <a href="http://gmane.org/spam-control.php">Spam</a><br>
+  <a href="http://gmane.org/find.php">Lists</a><br>
+  <a href="http://gmane.org/links.php">Links</a><br>
+<a href="http://gmane.org/about.php">About</a><br>
+<a href="http://gmane.org/host.php">Hosting</a><br>
+<a href="http://gmane.org/filter.php">Filtering</a><br>
+<a href="http://gmane.org/features.php">Features</a>
+<a href="http://gmane.org/dist.php">Download</a><br>
+<a href="http://gmane.org/logo.php">Marketing</a><br>
+<a href="http://gmane.org/import.php">Archives</a><br>
+<a href="http://weaver.gmane.org/">Weaver</a><br>
+  <a href="http://gmane.org/faq.php">FAQ</a><br>
+  &nbsp;<br>
+  </div>
+  <div class="ltd">
+  <!-- <img src="http://gmane.org/img/gmane-25.png" width=25 height=25 alt="Gmane"> -->
+  </div>
+  </div>
+  </td>
+  <td align="center" class="maintd">
+  <a href="http://gmane.org/"><img src="./Question on lme4 book_files/gmane-rot.png" alt="Gmane" border="0"></a>
+  </td>
+  <td class="bodytd">  
+<div class="headers">
+<div class="face">
+<a target="_top" href="http://ftp.cs.indiana.edu/pub/faces/picons/"><img border="0" alt="Picon" src="./Question on lme4 book_files/6518-picon-001.gif"></a>
+</div>
+From: Douglas Bates &lt;<a target="_top" href="http://gmane.org/get-address.php?address=bates%2dGX8I%2fT4BApV4piUD7e9S%2fg%40public.gmane.org" rel="nofollow">bates@...</a>&gt;<br>
+Subject: <a target="_top" rel="nofollow" href="http://news.gmane.org/find-root.php?message_id=CAO7JsnQugtx%2dZdKWcsg5A2wLJOWSQq%2bSsxvd6HimYD48f4Zcyg%40mail.gmail.com">Question on lme4 book</a><br>
+Newsgroups: <a href="http://news.gmane.org/gmane.comp.lang.r.rcpp" target="_top">gmane.comp.lang.r.rcpp</a>, <a href="http://news.gmane.org/gmane.comp.lang.r.lme4.devel" target="_top">gmane.comp.lang.r.lme4.devel</a><br>
+Date: 2013-12-09 17:56:37 GMT
+ (2 years, 1 week, 6 hours and 17 minutes ago)<br></div>
+<p>
+</p><div><div dir="ltr">Yesterday Taylor Russ asked<div>
+<div><span><br></span></div>
+<div>
+<span>  What it the proper citation for the lme4 package and the Bates' book?</span><br>
+</div>
+<div> Also, can lme4 datasets (e.g., Pastes, ScotsSec, InstEval etc.) be
+ used for illustration in publications?  Can the authors grant
+ permission or is the permission from the source needed?
+
+ Many thanks for the package and the book.  When can I hold a
+non-digital copy in my hands?
+</div>
+<div>I inadvertently deleted the message and so must respond without maintaining the thread.</div>
+</div>
+<div><br></div>
+<div>The data sets can be used in other publications. &nbsp;At least my understanding is that the data themselves cannot be copyright (despite the "Microsoft Patents 1's, 0's" headline in The Onion many years ago - for those of you who don't know that The Onion is a satirical newspaper, that didn't really occur). &nbsp;It is only the representation of the data, such as a table in a copyright publication, that can be copyright. &nbsp;I suppose I should provide the usual caveat, "I am (thankfully) not a lawyer".<br>
+</div>
+<div><br></div>
+<div>The other lme4 authors may be able to respond to the question of citing the lme4 package. &nbsp;I regret to say that I don't know of a good way of citing the book and that there won't be non-digital copies.</div>
+<div><br></div>
+<div>Partly this can be attributed to my personality - I'm good at starting projects but not so good at finishing them. &nbsp;However, finishing the book would involve spending time maintaining and developing the lme4 package for CRAN and I have completely lost my enthusiasm for doing so.</div>
+<div><br></div>
+<div>As many of you know, I am doing most of my work in the Julia language (<a href="http://www.julialang.org/">www.julialang.org</a>) now. &nbsp;R is wonderful and I enjoyed most of my time working on R and R packages but there are inherent limitations to R, particularly when trying to achieve good performance on fitting complex models to large data sets, that make this difficult. &nbsp;It would be attractive to have a "pure R" implementation of mixed-models but I don't see a way of making it run quickly and without using a lot of memory. &nbsp;In Julia I can build a package that achieves good performance without the need to interface to code written in C, C++ or Fortran - in the sense that my package doesn't need to require compilation of code outside of that provided by the language itself.</div>
+<div><br></div>
+<div>It is not surprising that the design of R is starting to show its age. &nbsp;Although R has only been around for 15-18 years, its syntax and much of the semantics are based on the design of "S3" which is 25-30 years old.</div>
+<div><br></div>
+<div>R packages can include code to be compiled along with the interface code and there are many wonderful tools to facilitate this - such as the Rcpp package, the devtools package and RStudio support for these packages. &nbsp;I used these in the compiled code underlying lme4_1.0.</div>
+<div><br></div>
+<div>But even though Dirk would describe the use of Rcpp as "seamless", in my experience it is not, especially if you wish to have your package available on CRAN.</div>
+<div><br></div>
+<div>Maintaining an Rcpp-based package on CRAN these days is a case of "no good deed shall go unpunished" and "the flogging will continue until morale improves". &nbsp;I am the maintainer of the RcppEigen package which apparently also makes me the maintainer of an Eigen port to Solaris. &nbsp;When compilers on Solaris report errors in code from Eigen I am supposed to fix them. &nbsp;This is difficult in that I don't have access to any computers running Solaris, which is a proprietary operating system as far as I can tell, and Eigen is a complex code base using what is called "template meta-programming" in C++. &nbsp;Making modifications to such code can be difficult. &nbsp;I can't claim to fully understand all the details in Eigen and in Rcpp. &nbsp;I am a user of these code bases, not a developer. The Eigen authors themselves don't test their code under Solaris because they don't have access to Solaris systems either and they don't regard Solaris as an important platform for numerical computing. &nbsp;The CRAN maintainers feel differently, which puts me in a box.</div>
+<div><br></div>
+<div>There are days when I am tempted to say, "okay, if RcppEigen is not suitable for CRAN then remove it" which would result in removal of all the packages that depend on it, including lme4. &nbsp;That may seem childish of me but I really don't know what else to do.</div>
+<div><br></div>
+<div>So I have reached the point of saying "goodbye" to R, Rcpp and lme4 and switching all of my development effort to Julia. &nbsp;I'm sorry but others are going to need to determine how to maintain lme4 to the satisfaction of the CRAN maintainers or whether there should be an alternative distribution mechanism for R packages.</div>
+<div><br></div>
+<div><br></div>
+</div></div>
+<pre>_______________________________________________
+Rcpp-devel mailing list
+<a target="_top" href="http://gmane.org/get-address.php?address=Rcpp%2ddevel%2dZ%2bqqJ2%2f841dDXCDGMXqaGq2UG9VpUWMKQH7oEaQurus%40public.gmane.org" rel="nofollow">Rcpp-devel@...</a>
+<a rel="nofollow" href="https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/rcpp-devel" target="_top">https://lists.r-forge.r-project.org/cgi-bin/mailman/listinfo/rcpp-devel</a></pre>
+<script type="text/javascript">
+document.domain = 'gmane.org';
+document.title = 'Question on lme4 book';
+</script>
+</td><td rowspan="2" class="listid">
+<a href="http://dir.gmane.org/gmane.comp.lang.r.rcpp">
+<img border="0" rel="nofollow" src="./Question on lme4 book_files/paint-list-id.php">
+</a>
+</td> 
+  
+  </tr>
+  </tbody></table>
+  
+
+<span style="height: 20px; width: 40px; position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; background-image: url(&quot;data:image/png;base64,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&quot;); background-color: transparent; background-size: 40px 20px;"></span></body></html>

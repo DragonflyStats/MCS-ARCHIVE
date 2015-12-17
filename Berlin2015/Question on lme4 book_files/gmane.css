@@ -1,0 +1,327 @@
+body {
+  font-family: arial, sans-serif;
+  color: black;
+  background: white;
+  margin: 0cm;
+}
+body.main {
+  font-family: arial, sans-serif;
+  color: black;
+  background: white;
+  margin: 0cm;
+  max-width: 800pt;
+
+}
+table.main {
+  border: 0 solid;
+  color: black;
+}
+td.maintd {
+  color: black;
+  background-color: white;
+  border: 1px solid #444444;
+}
+td.listid {
+  color: black;
+  background-color: white;
+  border: 0px solid #444444;
+  padding: 0pt;
+}
+td.bads {
+  color: black;
+  background-color: white;
+  border: 1px solid #444444;
+  text-align: center;
+}
+div.blank {
+  background-color: white;
+  border: 1px solid black;
+  height: 88px;
+  width: 726px;
+  padding: 0pt;
+}
+td.google {
+  color: black;
+  background-color: white;
+  border: 0px solid black;
+  padding: 0;
+}
+div.google {
+  color: black;
+  background-color: white;
+  padding: 0;
+  text-decoration: none;
+}
+div.googlefloat {
+  color: black;
+  background-color: white;
+  border: 0px solid #444444;
+  padding-left: 10px;
+  padding-top: 3px;
+  float: right;
+  margin-right: 2px;
+}
+div.google html body a {
+  color: #002390;
+  font-weight: bold;
+  text-decoration: none;
+}
+td.bodytd {
+  color: black;
+  background-color: white;
+  width: 100%;
+  border: 1px solid #444444;
+}
+table.otable {
+  color: black;
+  background-color: white;
+}
+table.grouptable {
+ vertical-align: top;
+}
+h1 {
+  font-weight: bold;
+  font-size: 12pt;
+}
+h2 {
+  font-weight: bold;
+  font-size: 12pt;
+}
+a {
+  color: #002390;
+  font-weight: bold;
+  text-decoration: none;
+}
+td.wetd {
+  color: white;
+  background-color: #009900;
+}
+td.webtd {
+  color: white;
+  background-color: #009900;
+  border: 1px solid black;
+}
+tt {
+}
+td.new {
+  font-size: small;
+  color: black;
+  text-align: right;
+}
+td.old {
+  font-size: small;
+  color: blue;
+  text-align: right;
+}
+table.threads {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 0px solid black;  
+}
+table.threads table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  margin: 0px;
+  padding: 0px;
+  border: 0px solid black;  
+}
+table.threads tr {
+}
+table.threads tr.read {
+  background: #e0e0e0;
+}
+table.threads tr.focused {
+  background: #ffd0d0;
+}
+table.threads td {
+  padding: 0pt 2pt;
+  margin: 0pt 0pt 0pt 0pt;
+  font-size: small;
+  white-space: nowrap;
+  border: 0px solid black;
+}
+table.threads th {
+  padding: 0pt 6pt;
+  margin: 0pt 0pt 0pt 0pt;
+  font-size: small;
+  white-space: nowrap;
+  border: 0px solid black;
+  text-align: right;
+  font-weight: normal;
+}
+table.threads td.s {
+  width: 100%;
+}
+table.threads div {
+  display: inline;
+}
+table.threads img {
+  border: 0px solid black;
+}
+body.loombody {
+  margin-top: 1pt;
+  margin-bottom: 1pt;
+  margin-left: 1pt;
+  margin-right: 1pt;
+}
+div.articletop {
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+body.article {
+  margin-top: 2px;
+  margin-bottom: 1pt;
+  margin-left: 3pt;
+  margin-right: 1pt;
+}
+div.fixed {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 100%;
+  font-size: small;
+}
+div.ltd {
+  position: absolute;
+  border: 0px solid black;
+  bottom: 10px;
+  left: 25px;
+}
+div.tdiv {
+  height: 100%;
+  position: relative;
+  display: block;
+}
+table.ltd {
+  border: 1px solid black;
+  padding: 0px;
+  margin: 0px;
+}
+div.ttd {
+  height: 100%;
+}
+table.groups {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 0;  
+}
+table.groups tr {
+}
+table.groups td {
+}
+div.face {
+   float: right;
+   margin-right: 2px;
+   margin-top: 2px;
+}
+div.face img {
+  border: 0px solid black;
+   vertical-align: top;
+}
+div.attachment {
+  font-size: small;
+  background-color: #e0e0e0;
+  border: 1px solid black;
+  padding: 1px;
+  margin: 1px;
+}
+div.imgattachment {
+  margin: 0px 0px 8px 0px;
+}
+div.imgattachment img {
+  border: 1px solid black;
+}
+div.headers {
+  margin-top: 2pt;
+}
+tr.subject {
+  background: #d0efff;
+}
+tr.subject td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-top: 1px solid black;
+}
+hr.rfc {
+  color: black;
+  background-color: black;
+  height: 1px;
+  border: 0;
+}
+div.donate {
+  float: right;
+  text-align: center;
+}
+table.donate {
+  background-color: #e0e0e0;
+  border: 1px solid black;
+  margin: 4px;
+}
+div.donate th {
+  text-align: left;
+  font-weight: normal;
+}
+div.donate td {
+  text-align: right;
+  font-weight: bold;
+}
+table.donate td.mcenter {
+  text-align: center;
+  font-weight: normal;
+}
+table.donate td.bcenter {
+  text-align: center;
+  font-weight: normal;
+  background-color: #d0d0d0;
+}
+div.rid {
+ text-align: center;
+ background-color: #e0e0e0;
+ width: 120px;
+}
+div.support {
+ text-align: center;
+ background-color: white;
+ border: 0px solid black;
+}
+table.frontad {
+  background-color: black;
+  color: white;
+}
+table.frontad a {
+  color: #8080ff;
+  font-weight: bold;
+  text-decoration: none;
+}
+form input.spam {
+  color:#003366;
+  font-family: arial, sans-serif;
+  white-space: normal;
+  font-weight: bold;
+  
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  cursor: hand;
+  margin: 0pt;
+  padding: 0pt;
+}
+
+table.popular {
+  border: 1px solid black;
+}
+
+div.navbar {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  border: 1px solid black;
+  bottom: 0px;
+  right: -2px;
+}
+
