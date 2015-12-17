@@ -85,7 +85,7 @@
 	%\setbeamercovered{transparent}   % overlays with light grey 1st slide
 	\title
 	{
-		{\huge Method Comparison Studies \\[0.3cm] }
+		{\huge Method Comparison Studies with \texttt{R}\\[0.3cm] }
 	}
 	\author[Kevin O'Brien]{{\bf Kevin O'Brien (kevin.obrien@ul.ie, University of Limerick)}}
 	\institute[University of Limerick, Maths \& Stats Dept]{}
@@ -196,14 +196,14 @@
 		\end{frame}
 		
 		%------------------------------------------------------------------------%
-		\section[Intro to MCS]{Introduction to Method Comparison Studies}
+		\section[Introduction]{Introduction to Method Comparison Studies}
 		%\subsection{Method Comparison Studies}
 %======================================================================== %
 \begin{frame}
 	\large
-Common Scenario for comparing two methods of measurements	\begin{description}
-		\item[Reference Method] 
-		\item[Test Method]
+Common Scenario for comparing two methods of measurements \\ \bigskip	\begin{description}
+		\item[Reference Method] Very accurate, but some cost involved in getting measurement. \\ \bigskip
+		\item[Test Method] Not as accurate as reference method, but less cost involved
 	\end{description}
 \end{frame}
 \begin{frame}
@@ -326,6 +326,15 @@ Common Scenario for comparing two methods of measurements	\begin{description}
 				\item No difference in the within-subject variabilities of the two methods \textit{(repeatability)}
 			\end{itemize}
 		\end{frame}
+		
+\begin{frame}
+\Large
+\noindent \textbf{Repeatability}
+\begin{itemize}
+\item \textbf{Repeatability}  is the variation in measurements taken by a single person or instrument on the same item, under the same conditions, and in a short period of time.
+\item Methods of neasurement should have good repeatability
+\end{itemize}
+\end{frame}
 		%------------------------------------------------------------------------%
 		
 		\begin{frame}{\bf \tcb{The Bland-Altman Plot}}
@@ -536,7 +545,7 @@ Nature.com
 			
 		\end{frame}
 		%========================================================================= %
-		\section{TAM and SHINY}
+		\subsection{TAM and SHINY}
 		\begin{frame}
 			\frametitle{Technology Acceptance Model}
 			\vspace{-0.4cm}
@@ -595,7 +604,8 @@ Nature.com
 			\end{itemize}
 		\end{frame}
 		%============================================================================ %
-		\begin{frame}
+	
+\begin{frame}
 			\begin{figure}
 				\centering
 				\includegraphics[width=0.99\linewidth]{images/SHINYCITE}
@@ -629,11 +639,34 @@ Nature.com
 		\end{frame}
 	
 		\section[Roy's LME Model]{Roy's LME Model}
-	\subsection{The nlme R Package}					
+\begin{frame}
+	\huge
+	Part 2 :  Using LME Models
+\end{frame}	
+	\subsection{The nlme R Package}
+\begin{frame}
+\noindent \textbf{WIKIPEDIA :  Linear Models (fixed effects only)}
+	\begin{figure}
+		
+\centering
+\includegraphics[width=1.1\linewidth]{images/LinearModelsWikipedia}
+\end{figure}
+
+\end{frame}	
+					\begin{frame}
+\noindent \textbf{WIKIPEDIA :  Linear Mixed Effects Models}
+						\begin{figure}
+\centering
+\includegraphics[width=1.0\linewidth]{images/LME-wiki}
+\caption{Wikipedia Entry on LME Models}
+\end{figure}
+
+					\end{frame}
 				\begin{frame}
+					\noindent \textbf{The nlme R package}
 					\begin{figure}
 						\centering
-						\includegraphics[width=1.1\linewidth]{images/CRAN-nlme}
+						\includegraphics[width=1.15\linewidth]{images/CRAN-nlme}
 						
 					\end{figure}
 					
@@ -653,15 +686,65 @@ Nature.com
 					\end{figure}
 					
 				\end{frame}
-		\subsection{Roy's LME Model}
+%========================================================= %
+\begin{frame}
+\noindent \textbf{LME4 R Package}
+\begin{figure}
+\centering
+\includegraphics[width=1.1\linewidth]{images/CRAN-lme4}
+\end{figure}
+\end{frame}
+%========================================================= %
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=1.1\linewidth]{images/dmbatesgithub}
+
+\end{figure}
+
+\end{frame}	
+%========================================================== %
+
+		\begin{frame}{\bf \tcb{The \texttt{nlme} Package}}
+			(For review)
+			\begin{itemize}
+				\item LME models can be implemented in \texttt{R} using the \texttt{nlme} package, one of the core packages.\\
+				\item Authors: Jose Pinheiro, Douglas Bates (up to 2007), Saikat
+				DebRoy (up to 2002), Deepayan Sarkar (up to 2005), the \texttt{R} Core team \\(source: \texttt{nlme} package manual)\\
+				\item ``Mixed-Effects Models in S and S-PLUS" by JC Pinheiro and DM Bates (Springer,2000)
+				
+			\end{itemize}
+			
+		\end{frame}
+			\subsection{Roy's LME Model}
 		%------------------------------------------------------------------------%
 		\begin{frame}{\bf \tcb{LME models}}
-						\Large
-			\begin{itemize}\itemsep0.7cm
-				\item In a linear mixed-effects model, responses from a subject are due to both fixed and random
-				effects. A random effect is an effect associated with a sampling procedure.
-				\item Replicate measurements would require use of random effect terms in model.
+						\large
+			\begin{itemize}\itemsep0.4cm
+				\item In a linear mixed-effects (LME) model, responses from a subject are due to both fixed and random
+				effects. 
+				\item A random effect is an effect associated with a sampling procedure. Replicate measurements would require use of random effect terms in model.
+				\item \textbf{(Essentially : Use of random effects allows sets of observations to be grouped together )}
 				\item Can have differing number of replicate measurements for different subjects.
+			\end{itemize}
+		\end{frame}
+%=============================================================== %		
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{images/sbphead}
+\caption{Systolic Blood Pressure Data (MethComp Package, Carstensen et \textit{al})}
+\label{fig:sbpsummary}
+\end{figure}
+\end{frame}
+
+		\subsection{Example}
+		\begin{frame}{\bf \tcb{Example: Blood Data}}
+			\begin{itemize}\itemsep0.7cm
+				\item Used in Bland and Altman's 1999 paper \cite{BA99}. Data was supplied by Dr E O'Brien.
+				\item Simultaneous measurements of systolic blood pressure each made by two experienced observers, J and R, using a  sphygmometer.
+				\item Measurements also made by a semi-automatic blood pressure monitor, denoted S.
+				\item On 85 patients, 3 measurement made in quick succession by each of the three observers (765 measurements in total)
 			\end{itemize}
 		\end{frame}
 		%------------------------------------------------------------------------%
@@ -679,13 +762,15 @@ Nature.com
 		%------------------------------------------------------------------------%
 		\begin{frame}{\bf \tcb{Roy's LME model}}
 			\large
-			\begin{itemize}\itemsep0.7cm
+			\begin{itemize}\itemsep0.6cm
 				
 				\item Let $\boldsymbol{y}_i$ be the set of responses for subject $i$ ( in matrix form).
 				\item $\boldsymbol{y}_i = \boldsymbol{X}_i\boldsymbol{\beta} + \boldsymbol{Z}_i \boldsymbol{b}_i + \boldsymbol{\epsilon}_i$
 				\item $\boldsymbol{b}_i \sim N_m(0,\boldsymbol{D})$  (m: number of methods)
 				\item $\boldsymbol{\epsilon}_i \sim N_{n_i}(0,\boldsymbol{R})$ ($n_i$: number of measurements on subject $i$)
 			\end{itemize}
+			\bigskip
+\textit{(\textbf{Remark:} Using Roy's own notation, which is different from Wikipedia)}
 		\end{frame}
 		
 		%------------------------------------------------------------------------%
@@ -718,6 +803,7 @@ Nature.com
 		\subsection{Implementation}
 		
 		\begin{frame}{\bf \tcb{Variance-Covariance Structures}}
+			Further to Chapter 5 of Pinheiro Bates
 			\large
 			\[\left(
 			\begin{array}{cc}
@@ -725,36 +811,29 @@ Nature.com
 			\sigma_{12} & \sigma^2_2\\
 			\end{array} \right)
 			\]
-			
-			\begin{itemize}
+			\large
+			\begin{itemize}\itemsep0.3cm
+				
 				\item Symmetric structure specifies that $\sigma^2_1$ may differ from $\sigma^2_2$.
-				\item Compound symmetric structure specifies that $\sigma^2_1 = \sigma^2_2$.
+				\item Compound symmetric (CS) structure specifies that $\sigma^2_1 = \sigma^2_2$.
 				\item In both cases, $\sigma_{12}$ may take value other than 0.
+				\item \textit{(What is stated here is applicable to $\boldsymbol{D}$ also)}
 			\end{itemize}
 			
 		\end{frame}
 		%------------------------------------------------------------------------%
-		\begin{frame}{\bf \tcb{The \texttt{nlme} Package}}
-			
-			\begin{itemize}
-				\item LME models can be implemented in \texttt{R} using the \texttt{nlme} package, one of the core packages.\\
-				\item Authors: Jose Pinheiro, Douglas Bates (up to 2007), Saikat
-				DebRoy (up to 2002), Deepayan Sarkar (up to 2005), the \texttt{R} Core team \\(source: \texttt{nlme} package manual)\\
-				\item ``Mixed-Effects Models in S and S-PLUS" by JC Pinheiro and DM Bates (Springer,2000)
-				
-			\end{itemize}
-			
-		\end{frame}
+
 		%-------------------------------------------------------------------%
 		\begin{frame}
-			\begin{itemize}
+			\large
+			\begin{itemize}\itemsep0.3cm
 				
-				\item Recall: Roys uses an LME model approach to provide a set of formal tests for method comparison studies.\\
+				\item Roys uses an LME model approach to provide a set of formal tests for method comparison studies.\\
 				
-				\item Four candidates models are fitted to the data. One is a reference model, and three are nested models.
+				\item Four candidates models are fitted to the data. One is a \textbf{reference model}, and three are \textbf{nested models}.
 				
 				\item 
-				These models are similar to one another, but for the imposition of equality constraints in the nested models
+				All of these models are similar to one another, but for the imposition of equality constraints in the nested models (i.e. Using CS structure)
 				
 %				\item 
 %				The proposed tests are the pairwise comparison of candidate models, one formulated without constraints, the other with a constraint. Constructively tests for equality of variances.\\
@@ -764,109 +843,104 @@ Nature.com
 			\end{itemize}
 		\end{frame}
 %-----------------------------------------------------------------------------------%
-\begin{frame}
-	\frametitle{Variance Covariance Matrices }
-	\large
-	\begin{itemize}\itemsep0.4cm
-		\item Under Roy's model, random effects are defined using a bivariate normal distribution. 
-		\item Consequently, the variance-covariance structures can be described using $2 \times 2$  matrices. \item A discussion of the various structures a variance-covariance matrix can be specified under is required before progressing. 
-		\item The following structures are relevant:
-		\begin{enumerate}
-			\item the identity structure, 
-			\item the compound symmetric structure
-			\item the symmetric structure.
-		\end{enumerate}
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Variance Covariance Matrices }
+%	\large
+%	\begin{itemize}\itemsep0.4cm
+%		\item Under Roy's model, random effects are defined using a bivariate normal distribution. 
+%		\item Consequently, the variance-covariance structures can be described using $2 \times 2$  matrices. \item A discussion of the various structures a variance-covariance matrix can be specified under is required before progressing. 
+%		\item The following structures are relevant:
+%		\begin{enumerate}
+%			\item the identity structure, 
+%			\item the compound symmetric structure
+%			\item the symmetric structure.
+%		\end{enumerate}
+%	\end{itemize}
+%\end{frame}
 %-------------------------------------------%
-\begin{frame}
-	\frametitle{Variance Covariance Matrices }
-	\begin{itemize}
-		\item The \textbf{identity} structure is simply an abstraction of the identity matrix. 
-		\item The \textbf{compound symmetric} structure and \textbf{symmetric} structure can be described with reference to the following matrix (here in the context of the overall covariance Block-$\boldsymbol{\Omega}_i$, but equally applicable to the component variabilities $\boldsymbol{G}$ and $\boldsymbol{\Sigma}$);
-		
-		\[\left( \begin{array}{cc}
-		\omega^2_1  & \omega_{12} \\
-		\omega_{12} & \omega^2_2 \\
-		\end{array}\right) \]
-	\end{itemize}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Variance Covariance Matrices }
+%	\begin{itemize}
+%		\item The \textbf{identity} structure is simply an abstraction of the identity matrix. 
+%		\item The \textbf{compound symmetric} structure and \textbf{symmetric} structure can be described with reference to the following matrix (here in the context of the overall covariance Block-$\boldsymbol{\Omega}_i$, but equally applicable to the component variabilities $\boldsymbol{G}$ and $\boldsymbol{\Sigma}$);
+%		
+%		\[\left( \begin{array}{cc}
+%		\omega^2_1  & \omega_{12} \\
+%		\omega_{12} & \omega^2_2 \\
+%		\end{array}\right) \]
+%	\end{itemize}
+%\end{frame}
 
-\begin{frame}
-	\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]{images/sbpsummary}
 
-\end{figure}
-
-\end{frame}
 		%------------------------------------------------------------------------%
 		\begin{frame}[fragile]{\bf \tcb{The Reference Model}}
+				\vspace{-1cm}
+			\begin{framed}
 			\texttt{REF = lme(y $\sim$ meth,\\
 				\hspace{0.6cm} data = dat,\\
 				\hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
 				\hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
 				\hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | item/repl),\\
 				\hspace{0.6cm} method="ML")}\\
+			\end{framed}
 			\begin{itemize}
 				\item LME model that specifies a symmetric matrix structure for both between-subject and within-subject variances.
+				\item No Equality Constraints
 			\end{itemize}
 			
 		\end{frame}
 		
 		%------------------------------------------------------------------------%
-		\begin{frame}[fragile]{\bf \tcb{The Nested Model 1}}
-			\texttt{NMB = lme(y $\sim$ meth,\\
+		\begin{frame}[fragile]{\bf \tcb{The Nested Model 1 (Between-Subject Variances)}}
+				\vspace{-1cm}
+		\begin{framed}	\texttt{NMB = lme(y $\sim$ meth,\\
 				\hspace{0.6cm} data = dat,\\
 				\hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
 				\hspace{0.6cm} weights=varIdent(form=$\sim$1|meth),\\
 				\hspace{0.6cm} correlation = \tcr{corSymm}(form=$\sim$1 | item/repl),\\
 				\hspace{0.6cm} method="ML")}
-			
+		\end{framed}	
 			\begin{itemize}
-				\item LME model that specifies a compound symmetric matrix structure for between-subject and symmetric structure within-subject variances.
+				\item LME model that specifies a compound symmetric matrix structure for between-subject (\textbf{i.e. Equality Constraint imposed}) and symmetric structure within-subject variances.
 			\end{itemize}
 			
 		\end{frame}
 		%------------------------------------------------------------------------%
-		\begin{frame}[fragile]{\bf \tcb{The Nested Model 2}}
+		\begin{frame}[fragile]{\bf \tcb{The Nested Model 2 (Within-Subject Variances)}}
+				\vspace{-1cm}
+			\begin{framed}
 			\texttt{NMW = lme(y $\sim$ meth,\\
-				\hspace{0.6cm} data = dat,\\
-				\hspace{0.6cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
-				\hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
-				\hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | item/repl),\\
-				\hspace{0.6cm} method="ML")}
+				\hspace{0.35cm} data = dat,\\
+				\hspace{0.35cm} random = list(item=\tcr{pdSymm}($\sim$ meth-1)), \\
+				\hspace{0.35cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
+				\hspace{0.35cm} correlation = \tcr{corCompSymm}(form=$\sim$1|item/repl),\\
+				\hspace{0.35cm} method="ML")}
+			\end{framed}
 			\begin{itemize}
-				\item LME model that specifies a symmetric matrix structure for between-subject and compound symmetric structure within-subject variances.
+				\item LME model that specifies a symmetric matrix structure for between-subject and compound symmetric structure within-subject variances (\textbf{i.e. Equality Constraint imposed}) .
 			\end{itemize}
 		\end{frame}
 		%------------------------------------------------------------------------%
 		
-		\begin{frame}[fragile]{\bf \tcb{The Nested Model 3}}
+		\begin{frame}[fragile]{\bf \tcb{The Nested Model 3 (Overall Variances)}}
+			\vspace{-1cm}
+			\begin{framed}
 			\texttt{NMO = lme(y $\sim$ meth,\\
-				\hspace{0.6cm} data = dat,\\
-				\hspace{0.6cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
-				\hspace{0.6cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
-				\hspace{0.6cm} correlation = \tcr{corCompSymm}(form=$\sim$1 | /repl),\\
-				\hspace{0.6cm} method="ML")}
+				\hspace{0.35cm} data = dat,\\
+				\hspace{0.35cm} random = list(item=\tcr{pdCompSymm}($\sim$ meth-1)), \\
+				\hspace{0.35cm} \tcb{\#weights=varIdent(form=$\sim$1|meth),}\\
+				\hspace{0.35cm} correlation = \tcr{corCompSymm}(form=$\sim$1|item /repl),\\
+				\hspace{0.35cm} method="ML")}
+			\end{framed}
 			\begin{itemize}
 				\item LME model that specifies a compound symmetric matrix structure for both between-subject and within-subject variances.
 			\end{itemize}
 		\end{frame}
 		
 		
-		
 		%------------------------------------------------------------------------%
-		\section[Example]{Example}
-		\subsection{Example}
-		\begin{frame}{\bf \tcb{Example: Blood Data}}
-			\begin{itemize}\itemsep0.7cm
-				\item Used in Bland and Altman's 1999 paper \cite{BA99}. Data was supplied by Dr E O'Brien.
-				\item Simultaneous measurements of systolic blood pressure each made by two experienced observers, J and R, using a  sphygmometer.
-				\item Measurements also made by a semi-automatic blood pressure monitor, denoted S.
-				\item On 85 patients, 3 measurement made in quick succession by each of the three observers (765 measurements in total)
-			\end{itemize}
-		\end{frame}
+		\subsection[Example]{Example}		
+
 		%------------------------------------------------------------------------%
 		
 		\begin{frame}[fragile]{\bf \tcb{Example: Blood Data}}
@@ -875,7 +949,7 @@ Nature.com
 			>summary(REF)
 			.....
 			Fixed effects: y ~ meth
-			Value Std.Error  DF t-value p-value
+			             Value Std.Error  DF t-value p-value
 			(Intercept) 127.41    3.3257 424  38.310       0
 			methS        15.62    2.0456 424   7.636       0
 			.....
@@ -931,7 +1005,7 @@ Nature.com
 		\end{frame}
 		%------------------------------------------------------------------------%
 		\begin{frame}[fragile]{\bf \tcb{Overall variance covariance matrix}}
-			
+			\large
 			\begin{itemize}\itemsep0.7cm
 				\item Overall variance \[
 				\mbox{Block }\hat{\boldsymbol{\Omega}} = \hat{\boldsymbol{D}} + \hat{\boldsymbol{\Sigma}} =
@@ -952,12 +1026,13 @@ Nature.com
 		%------------------------------------------------------------------------%
 		
 		\begin{frame}{\bf \tcb{Some useful \texttt{R} commands}}
+			\large
 			\begin{itemize}
 				
 				\item \texttt{intervals} :\vspace{0.25cm} \\This command obtains the estimate and confidence intervals on the parameters associated with the model.\\
 				This is particularly useful in writing some code to extract estimates for inter-method bias and variances, and hence estimates for the limits of agreement.
 				
-				\item \texttt{anova} : \vspace{0.25cm} \\When a reference model and nested model are specified as arguments, this command performs a likelihood ratio test.
+				\item \texttt{anova} : \vspace{0.25cm} \\When a reference model and nested model are specified as arguments, this command performs a \textbf{likelihood ratio test}.
 			\end{itemize}
 		\end{frame}
 		
@@ -972,7 +1047,7 @@ Nature.com
 			\begin{verbatim}
 			...
 			> anova(REF,NMB)
-			Model df ...     logLik   Test   L.Ratio p-value
+			   Model df ...     logLik   Test   L.Ratio p-value
 			REF    1  8 ...  -2030.736
 			NMB    2  7 ...  -2030.812 1 vs 2 0.1529142  0.6958
 			...
@@ -992,7 +1067,7 @@ Nature.com
 			\begin{verbatim}
 			...
 			> anova(REF,NMW)
-			Model df ...    logLik   Test  L.Ratio p-value
+			    Model df ...    logLik   Test  L.Ratio p-value
 			REF     1  8 ... -2030.736
 			NMW     2  7 ... -2045.044 1 vs 2 28.61679  <.0001
 			\end{verbatim}
@@ -1002,6 +1077,7 @@ Nature.com
 		\end{frame}
 		%------------------------------------------------------------------------%
 		\begin{frame}[fragile]{\bf \tcb{Formal Tests : Outcomes}}
+			\large 
 			\begin{itemize}
 				\item Inter-method bias: Significant difference in mean values detected.\\
 				\vspace{0.25cm}\item Between-subject variance: No significant difference in between-subject variances between the two methods detected.\\
@@ -1011,6 +1087,7 @@ Nature.com
 		\end{frame}
 		%------------------------------------------------------------------------%
 		\begin{frame}[fragile]{\bf \tcb{Remarks}}
+			\large 
 			\begin{itemize}
 				\item Can perform a test for equality of overall variances.\\
 				\vspace{0.25cm}\item This can be done by specifying a compound symmetry structure for both between-subject and within-subject variances when constructing a nested model.\\
@@ -1018,6 +1095,159 @@ Nature.com
 			\end{itemize}
 		\end{frame}
 		%------------------------------------------------------------------------%
+		\section{Influence}
+		\begin{frame}
+			\huge
+			Part 3 : Influence and Case Delection Diagnostics
+		\end{frame}
+		\begin{frame}
+			\begin{figure}
+\centering
+\includegraphics[width=0.99\linewidth]{images/influenceME}
+
+\end{figure}
+
+		\end{frame}
+		\begin{frame}Abstract for \texttt{influence.ME} Package
+			\large\begin{quote}
+\texttt{influence.ME} provides tools for detecting
+influential data in mixed effects models.
+The application of these models has become
+common practice, but the development of diagnostic
+tools has lagged behind. \\ \bigskip
+\texttt{influence.ME
+}calculates standardized measures of influential
+data for the point estimates of generalized mixed
+effects models, such as \textbf{DFBETAS, Cook's distance},
+as well as percentile change and a test for
+changing levels of significance. 
+			\end{quote}
+\end{frame}
+%===================================================== %
+\begin{frame}[fragile]
+\large
+\begin{itemize}
+\item \texttt{influence.ME} only works for models fitted with LME4.
+\item Can't use with previous approach so lets try new model with LME4
+\end{itemize}
+\begin{framed}
+\begin{verbatim}
+	sbp.LME4 = lmer(y ~ method-1 + (1 |subject ), 
+	   data = sbp,
+	   REML = FALSE)
+\end{verbatim}
+\end{framed}
+\end{frame}
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[width=0.8\linewidth]{images/InfluenceOutput1}
+
+\end{figure}
+
+\end{frame}
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=0.99\linewidth]{images/influenceCode1}
+\end{figure}
+
+\end{frame}
+\begin{frame}
+\large \noindent \textbf{DFBetas ranked by Cook's Distance}
+	\begin{figure}
+\centering
+\includegraphics[width=0.99\linewidth]{images/InfluenceOutput2}
+\end{figure}
+
+\end{frame}
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=0.99\linewidth]{images/plot1}
+\end{figure}
+
+\end{frame}
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.99\linewidth]{images/plot2}
+	\end{figure}
+	
+\end{frame}
+\begin{frame}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.99\linewidth]{images/plot4}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	\large
+	\noindent Case Deletion Diagnostics for nlme Model
+	\begin{itemize}
+		\item Going back to \texttt{nlme} model
+		\item We can compute Between Subject Variance and Within-Subject Variance for both methods. 
+		\item Express these as ratios (BWVR and WSVR).
+		\item Use Case Deletion diagnostics to study effect of each case.
+		\item \textit{Remove one subject each time and refit model \textit{(Not Computationally Efficient, but still very useful)}}
+	\end{itemize}
+\end{frame}
+		\begin{frame}[fragile]{\bf \tcb{Between-subject variance covariance matrix }}
+			
+			\begin{verbatim}
+			..
+			Random effects:
+			Formula: ~method - 1 | subject
+			Structure: General positive-definite
+			StdDev    Corr
+			methodJ  30.396975 methdJ
+			methodS  31.165565 0.829
+			Residual  6.116251
+			..
+			\end{verbatim}
+			\[
+			\hat{\boldsymbol{D}} = \left(
+			\begin{array}{cc}
+			923.97	& 785.34 \\
+			785.34	& 971.29\\
+			\end{array}\right)
+			\]
+		\end{frame}
+		
+		%------------------------------------------------------------------------%
+		\begin{frame}[fragile]{\bf \tcb{Within-subject variance covariance matrix}}
+			\begin{verbatim}
+			Correlation Structure: General
+			Formula: ~1 | subject/obs
+			Parameter estimate(s):
+			Correlation:
+			1
+			2 0.288
+			Variance function:
+			Structure: Different standard deviations per stratum
+			Formula: ~1 | method
+			Parameter estimates:
+			J        S
+			1.000000 1.490806
+			\end{verbatim}
+			\[
+			\hat{\boldsymbol{\Sigma}} = \left(
+			\begin{array}{cc}
+			37.40 & 16.06 \\
+			16.06 & 83.14 \\
+			\end{array}\right)
+			\]
+		\end{frame}
+\begin{frame}
+	\begin{figure}
+\centering
+\includegraphics[width=0.99\linewidth]{images/CaseDeletionDiagnosticsVR}
+\end{figure}
+
+\end{frame}
+%===================================================== %
 		\section[References]{References}
 		\subsection{References}
 		\begin{frame}{\bf \tcb{References}}
