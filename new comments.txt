@@ -1,1 +1,55 @@
-The nested models are nested inside the reference model only, not within each other.
+\begin{frame}\large
+\textbf{Important : Scope of MCS Problem}
+\begin{itemize} 
+\item Method Comparison specifically deals with methods of measurement.
+\item Other matters, such as the change in patient measurements over time, are not considered. 
+\\ (However the proposed methodology may be adapted to model thos problems).
+\item For the sake of brevity, we will only consider Method Comparison Studies only.
+\end{itemize}
+\end{frame}
+%=========================================%
+\begin{frame}
+\large
+\noindent \textbf{Citations}
+
+\begin{itemize}
+\item Controversial Topic, but important to mention as it demonstrates the prevalence of Method Comparison in medical research.
+\item Arguably, any new approach must incorporate the Bland-Altman methodology if it is to expect widespread use.
+\end{itemize}
+\end{frame}
+
+%=========================================%
+\begin{frame}
+
+\noindent \textbf{Important}
+
+
+\begin{itemize}
+\item The syntax for fitting LME models with nlme can be very challenging, particularly when fitting complicated models.
+\item However - it is a job that has to be done only once.
+\end{itemize}
+
+\end{frame}
+%=========================================%
+\begin{frame}
+\large
+\begin{itemize}
+\item Likelihood ratio Test
+\item The nested models are nested inside the reference model only, not within each other.
+\end{itemize}
+\end{frame}
+
+%=========================================%
+\begin{frame}
+\large
+\noindent \textbf{Statement of Estimates}
+
+\begin{itemize}
+\item The main estimates are derived from the "Ref" Model. 
+\item These estimates are the inter-method bias, the between-subject variance matrix and the within subject variance matrix.
+\item Limits of Agreement may be computed from the overall variance matrix - Full Bland-Altman plot may be construted.
+\item Remark: The summary output of the fitted model is quite challenging to read.
+\end{itemize}
+
+\end{frame}
+%=========================================%
