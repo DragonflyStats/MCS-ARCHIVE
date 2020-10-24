@@ -8,7 +8,42 @@ Why R? Foundation
 Python Ireland
 JuliaCon 
 
+--------------------------------------
+Experimental Design
 
+Same item / sample / patient
+Simultaneous Measurements
+
+--------------------------------------
+
+Agreement Criteria (for Replicate Measurements)
+
+* No inter-method Bias
+* Repeatability
+* Between-item Covariances
+
+
+(Barnhart et al / Roy 2009)
+
+--------------------------------------
+Intermethod Bias 
+- One device systematically over-estimates or underestimates the measurements .
+- Easy to detect 
+- Simple Recalibration
+
+---------------------------------------
+
+Technology Acceptance Model
+
+
+The technology acceptance model proposes that perceived ease of use and usefulness of a technological tool determines the extent of consumer acceptance.
+----------------------------------------
+
+Mountain Plot
+ - Folded ECDF Plot
+ - Implementation with ggplot2
+ 
+----------------------------------------
 ---------------------------------------------
 
 2. The Method Comparison Problem
