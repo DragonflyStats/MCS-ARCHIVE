@@ -1,4 +1,11 @@
 
+Kevin O'Brien 
+
+* Main Job: Forestry Data Scientist (mainly works with R).
+* Formerly a University lecturer in the West of Ireland.
+* Also I worked in Arts and Events Sector in Ireland.
+* Involved in R, Python and Julia Community organizations.
+
 1. Who am I
 
 Forestry 
@@ -8,11 +15,75 @@ Why R? Foundation
 Python Ireland
 JuliaCon 
 
---------------------------------------
+
+
+-----------------------------------------------------------------
+
+Method Comparison
+
+In some situations accurate measurements are easily obtained.
+In other situations athere is some cost or overhead associated with accuracy.
+
+Example: Body Mass Index
+
+-----------------------------------------------------------------
 Experimental Design
 
 Same item / sample / patient
 Simultaneous Measurements
+-----------------------------------------------------------------
+Two questions being asked:
+
+Agreement
+
+Interchangeability
+
+-----------------------------------------------------------------
+Application of Well-known approaches
+
+* Correlation, Paired t-tests, Regression
+* 
+
+-----------------------------------------------------------------
+The Bland-Altman Plot
+
+* Mean-Difference Plot (Tukey)
+
+
+-----------------------------------------------------------------
+Construction
+
+* Scatterplot of the case-wise averages vs the case-wise differences
+* ``plot(A,D)``
+
+-----------------------------------------------------------------
+Prevalence of the Bland Altman plot
+
+
+
+
+-----------------------------------------------------------------
+Technology Acceptance Model
+
+
+-----------------------------------------------------------------
+
+Linear Mixed Effects Models (LME)
+
+
+-----------------------------------------------------------------
+
+R programming:
+
+SAS: PROC MIXED
+
+Julia:
+
+
+-----------------------------------------------------------------
+
+--------------------------------------
+
 
 --------------------------------------
 
@@ -88,4 +159,3 @@ Mountain Plots
 
 Cook's Distance
 -------------------------------------------------
-5.
