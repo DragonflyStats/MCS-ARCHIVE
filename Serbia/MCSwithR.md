@@ -1,37 +1,27 @@
 
-Kevin O'Brien 
+#### Kevin O'Brien 
 
 * Main Job: Forestry Data Scientist (mainly works with R).
-* Formerly a University lecturer in the West of Ireland.
+* Formerly a university teacher in the West of Ireland.
 * Also I worked in Arts and Events Sector in Ireland.
 * Involved in R, Python and Julia Community organizations.
-
-1. Who am I
-
-Forestry 
-Former University Lecturer
-
-Why R? Foundation
-Python Ireland
-JuliaCon 
-
-
+    Why R? Foundation, Forwards, Python Ireland, JuliaCon 
 
 -----------------------------------------------------------------
 
-Method Comparison
+#### Method Comparison
 
-In some situations accurate measurements are easily obtained.
-In other situations athere is some cost or overhead associated with accuracy.
+Prevalence in Clinical Science
+
+* In some situations accurate measurements are easily obtained.
+* In other situations athere is some cost or overhead associated with accuracy.
 
 Example: Body Mass Index
 
 -----------------------------------------------------------------
-Experimental Design
 
-Same item / sample / patient
-Simultaneous Measurements
------------------------------------------------------------------
+#### Method Comparison
+
 Two questions being asked:
 
 Agreement
@@ -39,55 +29,16 @@ Agreement
 Interchangeability
 
 -----------------------------------------------------------------
-Application of Well-known approaches
 
-* Correlation, Paired t-tests, Regression
-* 
+#### Experimental Design
 
------------------------------------------------------------------
-The Bland-Altman Plot
-
-* Mean-Difference Plot (Tukey)
-
-
------------------------------------------------------------------
-Construction
-
-* Scatterplot of the case-wise averages vs the case-wise differences
-* ``plot(A,D)``
-
------------------------------------------------------------------
-Prevalence of the Bland Altman plot
-
-
-
-
------------------------------------------------------------------
-Technology Acceptance Model
+* Same item / sample / patient
+* Simultaneous Measurements
 
 
 -----------------------------------------------------------------
 
-Linear Mixed Effects Models (LME)
-
-
------------------------------------------------------------------
-
-R programming:
-
-SAS: PROC MIXED
-
-Julia:
-
-
------------------------------------------------------------------
-
---------------------------------------
-
-
---------------------------------------
-
-Agreement Criteria (for Replicate Measurements)
+#### Agreement Criteria (for Replicate Measurements)
 
 * No inter-method Bias
 * Repeatability
@@ -96,66 +47,92 @@ Agreement Criteria (for Replicate Measurements)
 
 (Barnhart et al / Roy 2009)
 
---------------------------------------
-Intermethod Bias 
+
+-----------------------------------------------------------------
+
+#### Intermethod Bias 
+
 - One device systematically over-estimates or underestimates the measurements .
 - Easy to detect 
 - Simple Recalibration
 
----------------------------------------
+-----------------------------------------------------------------
 
-Technology Acceptance Model
+#### Application of Well-known approaches
+
+* Correlation, Paired t-tests, Regression
+* 
+
+-----------------------------------------------------------------
+
+#### The Bland-Altman Plot
+
+* Mean-Difference Plot (Tukey)
 
 
-The technology acceptance model proposes that perceived ease of use and usefulness of a technological tool determines the extent of consumer acceptance.
-----------------------------------------
+Limits of Agreement 
+Tolerance Intervals
+
+
+-----------------------------------------------------------------
+
+#### Construction
+
+* Scatterplot of the case-wise averages vs the case-wise differences
+* ``plot(A,D)``
+
+-----------------------------------------------------------------
+
+#### Prevalence of the Bland Altman plot
+
+
+
+
+-----------------------------------------------------------------
+#### Technology Acceptance Model
+
+* The technology acceptance model proposes that perceived ease of use and usefulness of a technological tool determines the extent of consumer acceptance.
+
+
+
+-----------------------------------------------------------------
+
+#### Deming Regression
+
+(Twitter)
+
+-----------------------------------------------------------------
+
+#### Linear Mixed Effects Models (LME)
+
+
+-----------------------------------------------------------------
+#### Implementation of LME Models
+
+* R programming: {nlme} and {lme4}
+
+* SAS: PROC MIXED
+
+* Julia: MixedModels.jl
+
+-----------------------------------------------------------------
+
+#### LME Models with Nested Random Effects
+
+-----------------------------------------------------------------
+
+####  Graphical Approaches
 
 Mountain Plot
  - Folded ECDF Plot
  - Implementation with ggplot2
- 
-----------------------------------------
----------------------------------------------
 
-2. The Method Comparison Problem
 
-Prevalence in Clinical Science
-The Bland Altman Plot
-Other Measurements and Technqiues
-Simplicity of Construction
-Technology Acceptance Model
-Ubiquity of The Bland Altman Plots
-Limits of Agreement 
-Tolerance Intervals
+-----------------------------------------------------------------
 
------------------------------------------------
+#### Influence Analysis
 
-3. Systolic Blood Pressure 
+* Cook's Distance
+* DFBetas, DFFIts
 
-Replicate Measurements
 
------------------------------------------------
-
-4. Model Based Approach
-
-Simple Linear Regression
-Deming Regression
-
-------------------------------------------------
-5. Linear Mixed Effects Models
-
-lme4 R package
-nested random effects
-
-------------------------------------------------
-
-6. Graphical Approaches
-
-Mountain Plots
-
-------------------------------------------------
-
-7. Influence Analysis
-
-Cook's Distance
--------------------------------------------------
