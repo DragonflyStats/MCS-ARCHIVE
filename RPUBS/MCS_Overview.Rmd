@@ -1,0 +1,51 @@
+## Introduction
+
+The topic of this research is **Method Comparison Studies**, specifically focusing on suitable techniques for assessing agreement between methods of measurement. This is a commonly encountered problem in medical statistics.
+
+The most prevalent approach in the scientific literature is the Bland-Altman plot, along with its accompanying interval, the **limits of agreement**. This methodology is widely used and recognized, with Bland and Altman's 1986 paper being one of the most cited scientific works of all time.
+
+Fundamentally, the Bland-Altman plot is a scatterplot where case-wise differences are plotted against case-wise averages of measurements. The **limits of agreement** provide a 95% probability interval estimate for the distribution of case-wise differences. Its popularity is due in part to its simplicity, as it requires only a basic level of statistical knowledge to implement.
+
+Other approaches, such as the **correlation coefficient** and **regression analysis**, may also be considered. However, it has been demonstrated that these methods are insufficient for properly assessing agreement.
+
+### Replicate Measurements
+
+An important consideration is the matter of **replicate measurements**, i.e., multiple measurements taken by the same device on the same person or item. Several studies have highlighted the inadequacies of traditional methods when applied to such data.
+
+**Repeatability**—the quality of a device producing consistent readings across replicate measurements (i.e., the device agreeing with itself)—is often overlooked. Incorporating this aspect as much as possible is essential for a thorough analysis.
+
+---
+
+## Linear Mixed Effects Models
+
+Two key contributions have employed **Linear Mixed Effects (LME) models** to assess agreement:
+
+1. **Carstensen et al. (2006–2014)**: Improved the estimation of limits of agreement for replicate measurements.
+2. **Roy (2009)**: Proposed and demonstrated a suite of hypothesis tests to assess three key criteria for evaluating agreement.
+
+Both approaches were implemented using the Systolic Blood Pressure dataset, which is commonly featured in method comparison literature. A comparison of these approaches provides valuable insights for further improvement, particularly regarding the specification of the complex LME models required for Roy's approach.
+
+A criticism of these methodologies is that one is overly complex, while the other lacks sufficient complexity.
+
+---
+
+## Statistical Software Considerations
+
+A significant challenge in advancing these methodologies lies in the limitations of available **Statistical Software**. The main R packages for LME modeling are **nlme** and **lme4**. Notably:
+
+- Roy's approach, with its complex models, can only be implemented using **nlme**.
+- The goal is to develop an adequate yet simpler model that can be fitted using **lme4**.
+
+---
+
+## Model Diagnostic Methods
+
+Finally, there is a discussion on suitable techniques for investigating **influential cases** within the context of method comparison problems. These diagnostics are crucial for ensuring the robustness of the methodology.
+
+---
+
+### Suggestions for Improvement:
+- Ensure consistent formatting of references (e.g., "Carstensen et al. (2006–2014)" or "Roy (2009)") and specify key criteria Roy proposed for evaluating agreement.
+- Add specific examples or visual aids (e.g., a simplified Bland-Altman plot) to clarify and enhance explanations.
+- Elaborate on the inadequacies of correlation coefficients and regression analysis to strengthen the justification for alternative methods.
+- Address how influential case diagnostics integrate with the proposed models for a more cohesive narrative.
