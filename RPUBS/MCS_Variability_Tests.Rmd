@@ -1,0 +1,105 @@
+# Test 3
+
+The last of the three variability tests compares the overall variabilities of both methods.
+
+Overall variability between the two methods ($\Omega$) is the sum of between-subject ($D$) and within-subject variability ($\Sigma$):
+
+$$
+\text{Block } \boldsymbol{\Omega}_i = 
+\begin{bmatrix} 
+d^2_1 & d_{12} \\ 
+d_{12} & d^2_2 
+\end{bmatrix} 
++ 
+\begin{bmatrix} 
+\sigma^2_1 & \sigma_{12} \\ 
+\sigma_{12} & \sigma^2_2 
+\end{bmatrix}.
+$$
+
+### Variance-Covariance Matrices:
+With the null model, the MLE of the within-subject variance-covariance matrix is determined as follows:
+
+$$
+\boldsymbol{\hat{\Omega}}_{CS} = 
+\begin{bmatrix} 
+1007.92 & 801.65 \\ 
+801.65 & 1007.92 
+\end{bmatrix}, \quad
+\boldsymbol{\hat{\Omega}}_{Symm} = 
+\begin{bmatrix} 
+961.38 & 801.40 \\ 
+801.40 & 1054.43 
+\end{bmatrix}.
+$$
+
+The log-likelihood of the alternative model is $-2045.2$, while the null model has a log-likelihood of $-2030.7$. The test statistic is $28.884$, and the $p$-value is less than $0.0001$. Thus, the null hypothesis that both methods have equal overall variability is rejected. This difference is specifically attributed to the difference in within-subject variabilities, as demonstrated by the second variability test.
+
+---
+
+## Model Fit 3
+
+This model is more general compared to "Model Fit 2". It treats the random interactions for each subject as a vector, allowing the variance-covariance matrix for that vector to be estimated from all positive-definite matrices.
+
+### Model Specification:
+$$
+\boldsymbol{y_{i}} = \boldsymbol{X_{i}\beta} + \boldsymbol{Z_{i}b_{i}} + \boldsymbol{\epsilon_{i}}, \quad i = 1, \dots, 85
+$$
+
+Where:
+- $\boldsymbol{Z_{i}} \sim \mathcal{N}(\boldsymbol{0,\Psi})$
+- $\boldsymbol{\epsilon_{i}} \sim \mathcal{N}(\boldsymbol{0,\sigma^2\Lambda})$
+
+---
+
+## Variability Test 3
+
+This test determines whether both methods $A$ and $B$ have the same overall variability.
+
+### Hypotheses:
+$$
+H_{0}: \sigma_{A} = \sigma_{B} \quad \text{(equal variability)} \\
+H_{A}: \sigma_{A} \neq \sigma_{B} \quad \text{(different variability)}
+$$
+
+The null model assumes a symmetric form for both $\boldsymbol{\hat{D}}$ and $\boldsymbol{\hat{\Lambda}}$, while the alternative model uses a compound symmetry form.
+
+---
+
+### Bland-Altman's Blood Data:
+
+- **Null Model Variance-Covariance Matrix:**
+
+$$
+\boldsymbol{\hat{\Sigma}_{Symm}} = 
+\begin{bmatrix} 
+961.38 & 801.40 \\ 
+801.40 & 1054.43 
+\end{bmatrix}.
+$$
+
+- **Alternative Model Variance-Covariance Matrix:**
+
+$$
+\boldsymbol{\hat{\Sigma}_{CS}} = 
+\begin{bmatrix} 
+1007.92 & 801.65 \\ 
+801.65 & 1007.92 
+\end{bmatrix}.
+$$
+
+The test statistic is calculated as the difference between the $-2$ log-likelihoods: $28.884$, with a $p$-value less than $0.0001$. The null hypothesis is rejected, indicating different overall variability for the two models—a conclusion supported by the second variability test.
+
+---
+
+## Nested Model (Overall Variability)
+
+This third nested model tests overall variability, essentially serving as a joint test for between-item and within-item variability. While the motivation for including this test is unclear, it provides a simplified procedure that avoids multiple comparison procedures in certain scenarios, which can benefit non-statisticians.
+
+### Example Code:
+```R
+> NMO.fit = lme(y ~ meth-1, data = dat,   # CS , CS #
++     random = list(item=pdCompSymm(~ meth-1)), 
++     correlation = corCompSymm(form = ~1 | item/repl), 
++     method = "ML")
+```
