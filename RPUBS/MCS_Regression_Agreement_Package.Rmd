@@ -1,0 +1,120 @@
+## Agreement: Statistical Tools for Measuring Agreement
+
+The **Agreement** package computes several statistics for measuring agreement, including:
+- **Mean Square Deviation (MSD)**
+- **Total Deviation Index (TDI)**
+- **Concordance Correlation Coefficient (CCC)**
+
+This package can be applied to both:
+- Continuous data
+- Categorical data (for multiple raters and multiple readings).
+
+### Purpose
+
+The primary goal of studying agreement is to answer the question:  
+*Do the readings from one instrument or method agree with those from another instrument or method?*
+
+### Key Features:
+- **General Method**: Provides a framework to assess agreement for continuous and categorical data with repeated measurements using linear and generalized linear mixed models.
+- **Likelihood-Based Approaches**: Estimates within- and between-instrument agreement statistics, with discussions on the asymptotic properties of these estimates across various data structures.
+- **Handling Complexity**: Supports missing values and incorporates covariates naturally, making the method adaptable and robust.
+- **Restricted Agreement Statistics**: Introduces a new set of statistics to isolate true random variations and between-instrument effects, minimizing the influence of covariates.
+- **Simulations and Case Studies**: Demonstrates accuracy and effectiveness using examples related to method comparison and bioequivalence.
+
+---
+
+## Example Application: DCLHb Study
+
+**DCLHb** is a treatment solution containing oxygen-carrying hemoglobin.  
+In this study:
+- DCLHb levels are routinely measured using the Sigma method.
+- The simpler HemoCue method was modified to reproduce the DCLHb values of the Sigma method.
+- Each sample's DCLHb values were measured by **both methods twice**.
+
+The dataset contains 299 observations on 4 variables:
+- **2 variables for the Sigma method**
+- **2 variables for the HemoCue method**
+
+---
+
+## Sample R Code for the Agreement Package
+
+Below is an example of how to analyze agreement using this package:
+
+### Calculating Averages and Agreement Statistics
+```R
+# Load the data
+data(DCLHb)
+
+# Compute averages
+HemocueAve <- apply(DCLHb[, c("HEMOCUE1", "HEMOCUE2")], 1, mean)
+SigmaAve <- apply(DCLHb[, c("SIGMA1", "SIGMA2")], 1, mean)
+
+# Calculate agreement statistics
+agr <- agreement(
+  y = HemocueAve, x = SigmaAve, 
+  V_label = "Hemacue", H_label = "Sigma", 
+  min = 0, max = 2000, by = 250, 
+  CCC_a = 0.9775, CP_a = 0.9, TDI_a = 150, 
+  error = "const", target = "random", 
+  dec = 3, alpha = 0.05
+)
+
+# View summary
+summary(agr)
+```
+
+### Sample Output
+```
+Agreement Statistics
+    CCC Precision Accuracy     TDI     CP RBS
+ 0.9866    0.9867   0.9999 127.487 0.9463   0
+
+95% Confidence Limits
+    CCC Precision Accuracy     TDI     CP RBS
+ 0.9838    0.9839   0.9989 136.388 0.9276   .
+
+Allowance
+    CCC Precision Accuracy TDI  CP RBS
+ 0.9775         .        . 150 0.9   .
+```
+
+---
+
+## Unified Agreement Statistics
+
+The **unified.agreement** function can be used for more comprehensive agreement analysis.
+
+### Code Example
+```R
+# Unified Agreement Analysis
+ua <- unified.agreement(
+  dataset = DCLHb, 
+  var = c("HEMOCUE1", "HEMOCUE2", "SIGMA1", "SIGMA2"), 
+  k = 2, m = 2, 
+  CCC_a_intra = 0.9943, CCC_a_inter = 0.9775, CCC_a_total = 0.9775, 
+  CP_a = 0.9, tran = 1, 
+  TDI_a_intra = 75, TDI_a_inter = 150, TDI_a_total = 150, 
+  error = "const", dec = 1, alpha = 0.05
+)
+
+# View summary
+summary(ua)
+```
+
+### Sample Output
+```
+Type  Statistics      CCC    Precision Accuracy TDI   CP     RBS   
+Intra Estimate        0.9986 0.9986    .        41.1  0.9973 .     
+      95% Conf. Limit 0.9983 0.9983    .        46.2  0.9949 .     
+      Allowance       0.9943 0.9943    .        75    0.9    .     
+
+Inter Estimate        0.9866 0.9866    1        127.3 0.9474 .     
+      95% Conf. Limit 0.9825 0.9825    0.9987   145.9 0.9228 .     
+      Allowance       0.9775 .         .        150   0.9    .     
+
+Total Estimate        0.9859 0.986     1        130.5 0.9412 0.0028
+      95% Conf. Limit 0.9818 0.9818    0.9987   148.9 0.916  .     
+      Allowance       0.9775 .         .        150   0.9    .     
+```
+
