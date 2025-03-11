@@ -1,0 +1,42 @@
+# {mcr} Method Comparison Regression
+
+This package provides regression methods to quantify the relationship between two measurement methods. It specifically addresses regression problems with errors in both variables and without repeated measurements. The package includes implementations of:
+- **Deming regression**
+- **Weighted Deming regression**
+- **Passing-Bablok regression**
+
+These methods follow the **CLSI EP09-A3** recommendations for analytical method comparison and bias estimation using patient samples.
+
+For more details, refer to the [CLSI EP09-A3 documentation](http://cran.r-project.org/web/packages/mcr/mcr.pdf).
+
+---
+
+# Linear Mixed Effects (LME) Models
+
+## Overview
+Linear Mixed Effects (LME) models are statistical tools used to analyze data with both fixed and random effects. They are particularly useful for hierarchical or longitudinal data.
+
+### Key Topics:
+1. **Fixed Effects vs. Random Effects**: Understanding the distinction between fixed and random effects is crucial for specifying LME models.
+2. **Key Theoretical Developments**: Advances in LME modeling have improved their application in various fields.
+3. **Specification of LME Models**: Properly defining the structure of fixed and random effects is essential for accurate modeling.
+4. **Estimation for LME Models (ML vs. REML)**:
+   - **Maximum Likelihood (ML)**: Estimates both fixed and random effects simultaneously.
+   - **Restricted Maximum Likelihood (REML)**: Provides unbiased estimates of variance components by focusing on random effects.
+5. **Tools for Model Selection / Likelihood Ratio Tests**: Likelihood ratio tests and other criteria (e.g., AIC, BIC) are used for model comparison and selection.
+
+---
+
+## Contributions by Bendix Carstensen
+
+Bendix Carstensen and colleagues proposed the use of LME models to provide a more statistically rigorous approach to computing **Limits of Agreement (LoA)**. Their work highlights several shortcomings in traditional techniques, such as those proposed by Bland-Altman (1999), for handling replicate measurements.
+
+### Components:
+- **Carstensen's LME Model**: A framework for method comparison studies with replicate measurements.
+- **LoA Computation**: Carstensen's model extends the classical LoA approach to account for replicate data.
+
+### Key Papers:
+- **Carstensen et al. (2006)**: Introduced the use of LME models for method comparison.
+- **Carstensen et al. (2008)**: Expanded on the methodology and addressed practical applications.
+
+---
