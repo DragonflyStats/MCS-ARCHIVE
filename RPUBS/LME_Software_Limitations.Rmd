@@ -1,0 +1,45 @@
+# Challenges with Linear Mixed Effects (LME) Models
+
+Linear Mixed Effects models face notable challenges in terms of **mathematical tractability**, which can affect their usability and implementation. Below is an overview of various tools and their capabilities regarding LME modeling:
+
+---
+
+## SAS
+
+- **Roy's Methodology**: Roy demonstrated the implementation of her approach using SAS software.
+- **Criticism**: Bates has criticized some underlying assumptions of SAS's estimation methods, questioning their robustness.
+
+---
+
+## `nlme` R Package
+
+- **Capabilities**: The `nlme` package can fully implement the methodology proposed by Roy. It is theoretically capable of performing all necessary operations.
+- **Limitations**: Due to the complexity of the model, `nlme` is prone to issues of mathematical tractability, making it challenging to apply in certain scenarios.
+
+---
+
+## `lme4` R Package
+
+- **Strengths**: The `lme4` package allows for the easy incorporation of **crossed random effects**, making it a popular choice for mixed-effects modeling in R.
+- **Limitations**: It cannot currently model **residual covariance structures**, which limits its flexibility for some advanced modeling requirements.
+
+---
+
+## FlexLambda
+
+- **Overview**: FlexLambda was a development branch of `lme4`. 
+- **Status**: It is no longer under active development.
+
+---
+
+## `MixedModels.jl` Julia Package
+
+- **Overview**: Created by the same author as `lme4`, the `MixedModels.jl` package in Julia offers similar functionality.
+- **Limitations**: Like `lme4`, it cannot yet model **residual covariance structures**.
+
+---
+
+## `brms` R Package
+
+- **Overview**: The `brms` package facilitates **Bayesian regression modeling** using STAN.
+- **Syntax**: It employs the same syntax as `lme4`, making it accessible for users familiar with mixed-effects models in R.
