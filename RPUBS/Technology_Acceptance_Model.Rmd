@@ -1,0 +1,59 @@
+# The Technology Acceptance Model
+
+## Introduction
+Davis (1989) proposes the Technology Acceptance Model (TAM), which hypothesizes why users may adopt certain technologies while rejecting others. According to this theory, when users are introduced to a new technology, two key factors influence their decision to adopt it:
+
+### Key Factors:
+- **Perceived Usefulness (PU)**: Defined by Fred Davis as "the degree to which a person believes that using a particular system would enhance his or her job performance."
+- **Perceived Ease-of-Use (PEOU)**: Defined as "the degree to which a person believes that using a particular system would be free from effort."
+
+---
+
+## Application to Statistical Analysis
+Davis's explanations can be applied to statistical analysis. 
+
+- **Perceived Usefulness (PU)** could refer to the degree to which a user believes a specific statistical method adequately establishes the results of an analysis, such as indicating agreement (or lack thereof) in method comparison studies.
+
+- **Perceived Ease-of-Use (PEOU)** relates to the complexity of implementing a statistical solution. For instance, constructing a Bland-Altman plot and calculating limits of agreement require only a modest statistical skill set. These techniques rely on basic descriptive statistics and an understanding of the normal distribution, topics typically covered in undergraduate statistics courses. Furthermore, \citet{kikozak2014including} recommends introducing the Bland-Altman method in undergraduate teaching.
+
+In essence, users perceive the Bland-Altman methodology as an easy-to-implement technique that adequately addresses the question of agreement.
+
+---
+
+## Comparisons of Techniques
+
+### Survival Plot
+The **Survival Plot**, derived from the Kaplan-Meier Curve—a non-parametric graphical technique in Survival Analysis—is commonly found in specialized statistics courses. Despite its utility, it is often more complex and requires advanced knowledge.
+
+---
+
+### Mountain Plot
+The **Mountain Plot** is formally known as the folded empirical cumulative distribution plot. While not overly difficult to render, the process is not straightforward for casual users. Currently, there is only one software implementation available through the **medcalc.be** toolkit.
+
+---
+
+## Survival-Agreement Plot
+
+A graphical technique entirely distinct from the Bland-Altman plot was proposed by \citet{luiz}. This method, called the **Survival-Agreement Plot**, evaluates agreement using the Kaplan-Meier method. Luiz et al. suggest that survival analysis techniques should complement this approach, providing new analytical insights for assessing agreement.
+
+### Key Features of the Survival-Agreement Plot:
+- Used to identify bias between two measurements of the same variable.
+- Inter-method bias is tested using the **log-rank test**, while its magnitude is evaluated with **Cox regression**.
+- Agreement (or disagreement) is expressed as a function of various limits of tolerance, where failures occur at absolute values of the differences between measurement methods.
+- The plot is analogous to a step function without censored data. The **Y-axis** represents the proportion of discordant cases, while the **X-axis** indicates observed differences.
+
+---
+
+## Mountain Plot Details
+
+Krouwer and Monti propose the **Mountain Plot**, also known as the folded empirical cumulative distribution plot, as a method for detecting large, infrequent errors. This technique is non-parametric and is often used to complement the Bland-Altman plot.
+
+### Advantages:
+- Facilitates the identification of the central 95% of the data, even when distributions are non-normal.
+- Simplifies comparisons across different distributions.
+
+### Procedure:
+- Percentiles are calculated for each ranked difference between a new method and a reference method.
+- For percentiles above 50, the transformation `percentile = 100 - percentile` is applied (hence the "folded" nature).
+- These percentiles are plotted against the differences between the two methods.
+
