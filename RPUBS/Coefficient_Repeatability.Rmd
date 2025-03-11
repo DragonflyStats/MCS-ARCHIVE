@@ -1,0 +1,7 @@
+The **coefficient of repeatability (CR)** is a statistical measure used in method comparison studies to assess the reliability of a measurement method. It represents the maximum difference that is likely to occur between two measurements of the same subject under identical conditions. Essentially, it quantifies the variability or measurement error inherent in a method.
+
+In practical terms, the CR is calculated as **1.96 times the standard deviation of the differences** between paired measurements. This value indicates the range within which 95% of the differences between repeated measurements are expected to fall. A smaller CR suggests higher repeatability and reliability of the method.
+
+This measure is particularly useful in clinical and research settings, where it helps determine whether observed changes in measurements are due to actual differences or just random variability in the method. It is often used alongside other statistical tools like Bland-Altman plots to evaluate agreement between methods.
+
+Let me know if you'd like to dive deeper into this topic!
