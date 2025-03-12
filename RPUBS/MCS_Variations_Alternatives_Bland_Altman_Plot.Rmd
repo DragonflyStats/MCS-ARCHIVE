@@ -1,0 +1,63 @@
+# Variations and Alternative to Bland-Altman Plot
+
+## Bartko's Ellipse
+
+As an enhancement to the Bland-Altman Plot, **Bartko** proposed a confidence ellipse for covariates. According to **Bartko**, the bivariate confidence ellipse acts as a boundary for dispersion, with the purpose of "amplifying dispersion"—presumably for outlier detection. The orientation of the ellipse is key to interpreting the results:
+
+- The minor axis reflects between-item variability.
+- The major axis is related to the mean squared error (referred to as Error Mean Square).
+
+The ellipse visually illustrates the size of both relative to each other. Consequently, Bartko's ellipse helps:
+
+1. Determine the relationship between variances.
+2. Assess the variance of the means $Var(a_{i})$ against the variance of the differences $Var(d_{i})$.
+
+- If $\text{Var}(a)$ > $\text{Var}(d)$, the ellipse orientation is horizontal.
+- If $\text{Var}(a)$ < $\text{Var}(d)$, the ellipse orientation is vertical.
+
+A more horizontal ellipse suggests greater agreement between the two methods being tested.
+
+### Outlier Detection
+Bartko emphasizes that the ellipse can also aid in detecting outliers. For example, in the Bland-Altman plot for Grubbs' data, complemented by Bartko's ellipse, the fourth observation falls outside the bounds of the ellipse, marking it as a potential outlier. However, outlier classification must align with the data's logic:
+
+- Points with noticeable horizontal displacement (supported by two independent measurements) should not be immediately considered outliers.
+- Points with noticeable vertical displacement, like the fourth observation, may indicate outliers.
+
+## Survival-Agreement Plot
+
+Proposed by **Luiz**, the Survival-Agreement Plot offers a unique approach to method comparison studies. It is entirely distinct from the Bland-Altman plot and utilizes the Kaplan-Meier method—a well-known technique in Survival Analysis. Luiz suggests complementing this method with common survival analysis techniques to provide new insights into agreement.
+
+### Key Features
+1. The Survival-Agreement Plot uses limits of tolerance to express agreement (or disagreement).
+2. Kaplan-Meier steps occur at the absolute observed differences between two measurement methods.
+
+**Axes Explanation:**
+- **X-axis:** Absolute observed differences.
+- **Y-axis:** Proportion of cases with at least the observed difference ($x_i$).
+
+This approach also employs the log-rank test to detect inter-method bias and Cox regression to measure its magnitude.
+
+## Mountain Plot
+
+A graphical method introduced by **Krouwer and Monti** for evaluating laboratory assays, the Mountain Plot (or Folded Empirical Cumulative Distribution Plot) computes percentiles for ranked differences between two methods. By "folding" at the 50th percentile, a histogram-like function ("the mountain") is produced.
+
+### Advantages
+1. Detects large, infrequent errors (differences).
+2. Easily identifies the central 95% of data, even when data are not Normally distributed.
+3. Allows easy comparison of distributions.
+
+Mountain plots serve as a useful complement to Bland-Altman plots.
+
+### Plot Creation
+1. Compute percentiles for ranked differences between two methods.
+2. For percentiles above 50, apply the transformation: `Percentile = 100 - Percentile`.
+3. Plot the resulting percentiles against the differences.
+
+---
+
+## Citations
+
+1. Bartko, J. (Details on Confidence Ellipse for Outlier Detection).
+2. Luiz, W. (Proposed Survival-Agreement Plot with Kaplan-Meier Method).
+3. Krouwer, J., & Monti, K. (1995). Introduction of the Mountain Plot for Evaluation of Laboratory Assays.
+4. Bland, J. M., & Altman, D. G. (References for Limits of Agreement).
